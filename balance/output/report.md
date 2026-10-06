@@ -290,6 +290,18 @@ Itens nossos com o mesmo pacote de stats de um item do Brotato (depois de conver
 
 Quando o ratio de uma cópia exata foge de 1.0 e o preço é igual ao do Brotato, o desvio é do modelo (stat mal calibrado), não do item. Itens que no Brotato têm um efeito extra que não copiamos (por exemplo o Coil, com +1% Damage por ponto de Knockback) não aparecem aqui porque o pacote de stats não é idêntico.
 
+## Cópias sem o efeito especial do Brotato
+
+Itens ativos nossos cujos stats planos coincidem (**exata**) ou quase coincidem (**parcial**) com um item do Brotato que tem um efeito especial ou condicional que o nosso não tem. O texto do efeito vem do dataset do Brotato. 'Nosso equivalente' mostra atributos sem equivalente direto no Brotato e hooks da planilha; vazio significa que não há nada que reproduza o efeito. Ratios baixos aqui costumam ser o efeito faltando, não o preço errado.
+
+| Nosso item | Item do Brotato | Tipo | Efeito que falta (dataset) | Nosso equivalente | Ratio |
+|---|---|---|---|---|---|
+| item_83 Bedspring | Coil (T3, 70) | parcial (um valor diferente) | +1 % Damage for every 1 Knockback you have | nenhum | 0.31 |
+| item_103 Lucky Coin | Lucky Coin (T4, 105) | parcial (mesmo nome) | +2 Luck for every 1 % Crit Chance you have | nenhum | -0.13 |
+| item_109 Pocket Teleporter | Sifd’s Relic (T4, 100) | exata | +100% chance to instantly attract a material when it’s dropped | auto_magnet_on_drop_chance +1 | 0.86 |
+
+Não entram aqui cópias exatas cujo item do Brotato não tem efeito especial (por exemplo Behemoth Foam Fists = Mastery e Black Bandana = Gambling Token): elas estão na tabela de cópias exatas acima, e o ratio baixo delas vem do modelo, não de efeito faltando.
+
 ## Nota do designer
 
 O designer confirmou que o nosso Glasses (item_10) é um item original, não baseado em nenhum item do Brotato.

@@ -286,6 +286,65 @@ def exact_copies(items, amap, brotato, rows):
     return out
 
 
+MATCH_UNITS = {"knockback_force": ("knockback", 1.0), "items_price": ("items_price", 100.0),
+               "xp_gain": ("xp_gain", 100.0), "consumable_heal": ("consumable_heal", 1.0)}
+
+
+def our_vector(it, amap):
+    """Pacote do nosso item em unidades do Brotato (so atributos com equivalente direto) + atributos sem equivalente."""
+    vec, extra = {}, []
+    for k, v in it["attrs"]:
+        m = amap.get(k)
+        if k in MATCH_UNITS:
+            st, sc = MATCH_UNITS[k]
+        elif m is not None and m["source"] == "fit" and k not in ("jump_force", "max_jumps", "pickup_range"):
+            st, sc = m["stat"], m["scale"]
+        else:
+            extra.append("%s %+g" % (k, v))
+            continue
+        vec[st] = vec.get(st, 0.0) + v * sc
+    return {k: round(v, 6) for k, v in vec.items() if abs(v) > 1e-9}, extra
+
+
+def missing_effects(items, amap, brotato, rows):
+    """Itens nossos parecidos com um item do Brotato que tem efeito especial (notes) que o nosso nao tem."""
+    byid = {r["id"]: r for r in rows}
+    out = []
+    for it in items:
+        vec, extra = our_vector(it, amap)
+        if not vec:
+            continue
+        best_score, best = 0, []
+        for b in brotato:
+            notes = "; ".join(n for n in b["notes"].split("; ") if "Nightmare" not in n)  # ignora efeitos so do modo Nightmare
+            if not notes:
+                continue
+            bs = {k: round(v, 6) for k, v in b["stats"].items()}
+            name_eq = it["name"].strip().lower() == b["name"].strip().lower()
+            if bs and bs == vec:
+                score, kind = 4, "exata"
+            elif bs and set(bs) == set(vec) and sum(1 for k in bs if bs[k] != vec[k]) == 1 and (
+                    len(bs) >= 2 or (next(iter(bs.values())) * next(iter(vec.values())) > 0
+                                     and 0.7 <= vec[next(iter(vec))] / bs[next(iter(bs))] <= 1.5
+                                     and 0.75 <= it["price"] / b["price"] <= 1.33)):
+                score, kind = 3, "parcial (um valor diferente)"
+            elif name_eq:
+                score, kind = 2, "parcial (mesmo nome)"
+            elif bs and b["price"] == it["price"] and b["tier"] == it["tier"] and len(bs) >= 2 \
+                    and sum(1 for k in bs if vec.get(k) == bs[k]) * 3 >= len(bs) * 2:
+                score, kind = 1, "parcial (mesmo preço e tier, 2/3 dos stats)"
+            else:
+                continue
+            if score > best_score:
+                best_score, best = score, [(b, kind, notes)]
+            elif score == best_score:
+                best.append((b, kind, notes))
+        for b, kind, notes in best:
+            hook = (it["synergy"] + " " + it["replace"]).strip()
+            out.append((it, b, kind, extra, hook, byid[it["id"]], notes))
+    return out
+
+
 def evaluate(items, amap, bands, pw):
     out = []
     for it in items:
@@ -524,6 +583,23 @@ def write_report(path, args, values, quality, bands, band_acc, brotato, amap, ro
     a("")
     a("Quando o ratio de uma cópia exata foge de 1.0 e o preço é igual ao do Brotato, o desvio é do modelo (stat mal calibrado), não do item. "
       "Itens que no Brotato têm um efeito extra que não copiamos (por exemplo o Coil, com +1% Damage por ponto de Knockback) não aparecem aqui porque o pacote de stats não é idêntico.")
+    a("")
+    a("## Cópias sem o efeito especial do Brotato")
+    a("")
+    a("Itens ativos nossos cujos stats planos coincidem (**exata**) ou quase coincidem (**parcial**) com um item do Brotato que tem um efeito especial ou condicional que o nosso não tem. "
+      "O texto do efeito vem do dataset do Brotato. 'Nosso equivalente' mostra atributos sem equivalente direto no Brotato e hooks da planilha; vazio significa que não há nada que reproduza o efeito. "
+      "Ratios baixos aqui costumam ser o efeito faltando, não o preço errado.")
+    a("")
+    me = missing_effects(items, amap, brotato, rows)
+    lines_me = []
+    for it, b, kind, extra, hook, r, notes in me:
+        equiv = "; ".join(extra + (["hook: " + hook[:80]] if hook else [])) or "nenhum"
+        lines_me.append([it["id"] + " " + it["name"], "%s (T%d, %g)" % (b["name"], b["tier"], b["price"]), kind,
+                         notes.replace("|", "/"), equiv, "-" if r["ratio"] is None else fmt(r["ratio"])])
+    a(md_table(["Nosso item", "Item do Brotato", "Tipo", "Efeito que falta (dataset)", "Nosso equivalente", "Ratio"], lines_me))
+    a("")
+    a("Não entram aqui cópias exatas cujo item do Brotato não tem efeito especial (por exemplo Behemoth Foam Fists = Mastery e Black Bandana = Gambling Token): "
+      "elas estão na tabela de cópias exatas acima, e o ratio baixo delas vem do modelo, não de efeito faltando.")
     a("")
     a("## Nota do designer")
     a("")
