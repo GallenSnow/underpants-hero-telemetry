@@ -1,0 +1,158 @@
+name,tier,price,stats,notes
+Acid,2,65,max_hp:+8;dodge:-2;knockback:-2,
+Adrenaline,3,60,dodge:+5,50% de chance de curar 5 HP ao esquivar
+Alien Baby,3,80,max_hp:+15,+10% vida dos inimigos
+Alien Magic,3,85,max_hp:+8;hp_regen:+3;luck:-8,
+Alien Tongue,1,25,pickup_range:+30;knockback:+1,
+Alien Worm,1,15,max_hp:+3;hp_regen:+2;consumable_heal:-1,
+Alloy,3,80,melee_damage:+3;ranged_damage:+3;elemental_damage:+3;engineering:+3;crit_chance:+5;dodge:-6,
+Ashes,4,100,damage_pct:+20;attack_speed:+20;range:+100,-1 Armor por wave
+Baby Gecko,1,18,range:+10,+25% atracao instantanea de material
+Baby Squid,2,55,attack_speed:-3,+1 HP Regen a cada level up
+Bag,1,15,speed:-1,+15 materiais de caixas
+Bait,2,25,damage_pct:+8,inimigos especiais na proxima wave
+Ball and Chain,3,75,damage_pct:+15;armor:+3;knockback:+5;speed:-3,cooldown minimo 0.75s
+Bandana,3,75,damage_pct:-10,projeteis perfuram +1 alvo
+Banner,2,55,range:+20;attack_speed:+10;knockback:-5,
+Barricade,3,75,knockback:+3;speed:-5,+8 Armor parado
+Bat,1,20,life_steal:+2;harvesting:-2,
+Bean Teacher,3,70,xp_gain:+50;life_steal:-2,
+Beanie,1,20,speed:+4;range:-6,
+Big Arms,4,105,melee_damage:+12;ranged_damage:+6;knockback:+3;attack_speed:-3;speed:-3,
+Black Belt,2,50,xp_gain:+25;melee_damage:+3;knockback:+3;luck:-8,
+Blindfold,2,45,crit_chance:+5;dodge:+5;range:-15,
+Blood Donation,3,50,harvesting:+40,-1 dano/segundo ao jogador
+Blood Leech,2,45,life_steal:+2;hp_regen:+2;harvesting:-3,
+Bloody Hand,4,110,life_steal:+10,+2% dano por 1% Life Steal; -1 dano/segundo
+Boiling Water,1,30,elemental_damage:+2;max_hp:-1,
+Book,1,15,engineering:+2;elemental_damage:+1;luck:-1,
+Bowler Hat,3,75,luck:+15;harvesting:+18;attack_speed:-5;crit_chance:-3,
+Boxing Glove,1,18,melee_damage:+1;knockback:+3,
+Broken Mouth,1,25,max_hp:+5;hp_regen:-1,
+Butterfly,1,30,life_steal:+2;elemental_damage:-1,
+Cake,1,15,max_hp:+3;damage_pct:-1,
+Campfire,2,40,elemental_damage:+2;hp_regen:+2;speed:-2,
+Candle,3,65,elemental_damage:+4;hp_regen:+1;damage_pct:-5,-10% inimigos
+Cape,4,110,life_steal:+5;dodge:+20;melee_damage:-2;ranged_damage:-2;elemental_damage:-2,
+Cauldron,2,35,pickup_range:+50;hp_regen:-2,+20% dano por 2s apos pegar consumivel
+Chameleon,3,70,dodge:+3;damage_pct:-4,+20% Dodge parado
+Charcoal,1,20,elemental_damage:+1;melee_damage:+2;harvesting:-2,
+Claw Tree,1,20,melee_damage:+1;crit_chance:+3;max_hp:-1,
+Clockwork Wasp,2,45,speed:+5,+10% velocidade de ataque de estruturas
+Clover,3,65,luck:+20;dodge:+6;life_steal:-2,
+Coffee,1,20,attack_speed:+10;damage_pct:-2,
+Cog,2,35,engineering:+4;knockback:+1;damage_pct:-4,
+Coil,3,70,knockback:+5,+1% dano por 1 Knockback
+Community Support,3,75,armor:-2,+1% Attack Speed por inimigo vivo
+Compass,2,40,speed:+5;engineering:+3;crit_chance:-3,
+Coral,2,40,range:-10,+10 HP Regen parado
+Corrupted Shard,1,12,damage_pct:+3;curse:+1,
+Coupon,1,15,items_price:-5,
+Crystal,3,65,attack_speed:+5;engineering:-2,+1% Attack Speed por segundo
+Cute Monkey,1,25,ranged_damage:-1,8% de chance de curar 1 HP ao pegar material
+Cyclops Worm,2,45,damage_pct:+12;range:-12,
+Defective Steroids,1,20,max_hp:+2;melee_damage:+2;attack_speed:-3,
+Diploma,4,90,engineering:+10;xp_gain:+50;max_hp:-3,
+Duct Tape,1,20,armor:+1;engineering:+1;max_hp:-2,
+Dynamite,1,20,explosion_damage:+15,
+Energy Bracelet,2,55,crit_chance:+4;elemental_damage:+2;ranged_damage:-2,
+Esty's Couch,4,100,max_hp:+5;speed:-20,+2 HP Regen por -1% Speed
+Exoskeleton,4,90,armor:+3;crit_chance:+5;engineering:+5;speed:+5;hp_regen:-2;life_steal:-2,
+Explosive Shells,4,100,explosion_damage:+60;explosion_size:+15;damage_pct:-15,
+Eyepatch,2,55,crit_chance:+3,perfura +1 em critico; -10% precisao
+Eyes Surgery,2,60,elemental_damage:+1;range:-10,queimadura 20% mais rapida
+Feather,1,18,ranged_damage:+1;dodge:+3;xp_gain:-3,
+Fertilizer,1,15,harvesting:+8;melee_damage:-1,
+Fin,3,65,speed:+10;life_steal:+3;luck:-8,
+Focus,4,110,damage_pct:+30,-3% Attack Speed por arma diferente
+Fresh Meat,1,25,life_steal:+2;hp_regen:-1,
+Frozen Heart,3,90,elemental_damage:+8;crit_chance:+5,+10% escala elemental das armas; queimadura -100%
+Fruit Basket,2,45,hp_regen:-3,frutas caem mais
+Fuel Tank,2,45,elemental_damage:+4;melee_damage:-1;ranged_damage:-1,
+Gambling Token,2,50,dodge:+8;armor:-1,
+Gentle Alien,1,30,max_hp:+2;damage_pct:+5,+5% inimigos
+Ghost Outfit,3,80,dodge:+10;speed:-5;armor:-3,Dodge limitado a 70%
+Glass Cannon,3,75,damage_pct:+25;armor:-3,
+Glasses,1,20,range:+20,
+Gnome,4,100,melee_damage:+10;elemental_damage:+10;range:-20;pickup_range:-20,
+Goat Skull,1,25,melee_damage:+3;crit_chance:-2,
+Gobbler's Hat,4,130,speed:-15;dodge:-10,+70% materiais dropados
+Goblet,3,70,hp_regen:-3,+15% de chance de curar 1 HP ao matar
+Grind's Magical Leaf,4,110,,"+3 Max HP, +1 HP Regen, +1% Life Steal por wave (escala com o tempo)"
+Gummy Berserker,1,25,attack_speed:+5;range:+25;armor:-1,
+Handcuffs,3,80,melee_damage:+8;ranged_damage:+8;elemental_damage:+8,Max HP limitado
+Head Injury,1,25,damage_pct:+6;range:-8,
+Heavy Bullets,4,100,ranged_damage:+5;damage_pct:+10;range:+10;attack_speed:-5;crit_chance:-5,
+Hedgehog,1,30,melee_damage:+2;ranged_damage:+1;hp_regen:-1,
+Helmet,1,15,armor:+1;speed:-2,
+Honey,3,70,ranged_damage:+3;explosion_damage:+10;explosion_size:+5;speed:-3;dodge:-3,
+Improved Tools,3,70,attack_speed:+10,+50% velocidade de ataque de estruturas
+Injection,1,20,damage_pct:+7;max_hp:-2,
+Insanity,1,20,crit_chance:+6;damage_pct:-3,
+Jerky,2,50,consumable_heal:+3,consumiveis curam ao longo de 4s
+Jet Pack,4,100,speed:+15;dodge:+10;max_hp:-5;armor:-1,
+Knot,3,80,damage_pct:+15;max_hp:+15,armas nao podem evoluir nem ser recicladas
+Kraken's Eye,4,110,max_hp:+15;curse:+15,50% de chance de explodir ao acertar
+Lantern,4,100,damage_pct:+10;range:+50;knockback:+15,empurra inimigos proximos
+Leather Vest,2,45,armor:+2;dodge:+6;max_hp:-3,
+Lemonade,1,15,consumable_heal:+1,
+Lens,1,20,ranged_damage:+1;range:-5,
+Lighthouse,3,80,engineering:+20,-1 Engineering por estrutura
+Little Frog,2,45,pickup_range:+20;harvesting:+10;dodge:-3,
+Little Muscley Dude,2,50,melee_damage:+3;max_hp:+5;range:-15,
+Lost Duck,1,25,luck:+8;elemental_damage:-1,
+Lucky Charm,3,75,luck:+30;melee_damage:-2;ranged_damage:-1,
+Lucky Coin,4,105,armor:-2,+2 Luck por 1% de Crit Chance
+Mammoth,4,110,melee_damage:+20;hp_regen:+5;knockback:+5;damage_pct:-8;speed:-3,
+Mastery,2,55,melee_damage:+6;ranged_damage:-3,
+Medal,2,55,max_hp:+3;damage_pct:+3;armor:+1;speed:+3;crit_chance:-4,
+Medikit,4,95,hp_regen:+10;luck:-10,+2 HP Regen a cada 5s
+Metal Detector,2,40,luck:+6;engineering:+2;damage_pct:-5,+5% de chance de dobrar material
+Metal Plate,2,40,armor:+2;damage_pct:-3,
+Missile,2,45,damage_pct:+10;attack_speed:-4,
+Mouse,3,55,life_steal:+5;harvesting:-5,+10% inimigos
+Mushroom,1,25,hp_regen:+3;luck:-2,
+Mutation,1,25,ranged_damage:+1;elemental_damage:+1;knockback:-3,
+Nail,3,65,engineering:+5;ranged_damage:-2,+20% escala de Engineering
+Night Goggles,4,95,crit_chance:+15;range:+50;max_hp:-3;armor:-1,
+Octopus,4,105,max_hp:+12;hp_regen:+5;life_steal:+3;crit_chance:-8,
+Padding,2,45,max_hp:+3,+1 Max HP por 80 materiais
+Panda,4,100,max_hp:+12;luck:+25;damage_pct:-5,
+Peaceful Bee,1,18,dodge:+4;harvesting:+4;melee_damage:-1;ranged_damage:-1,
+Pencil,1,8,engineering:+1,
+Penguin,1,25,hp_regen:+1,+1 HP Regen ao pegar consumivel com vida cheia
+Pile of Books,2,60,crit_chance:+5;engineering:+3,estruturas podem dar critico
+Plant,1,15,hp_regen:+3;life_steal:-1,
+Poisonous Tonic,3,80,attack_speed:+10;crit_chance:+5;range:+15;hp_regen:-2,
+Potato,4,95,max_hp:+3;hp_regen:+2;life_steal:+1;damage_pct:+5;attack_speed:+5;speed:+3;dodge:+3;armor:+1;luck:+5,
+Propeller Hat,1,28,luck:+10;damage_pct:-2,
+Regeneration Potion,4,90,hp_regen:+3,HP Regen dobrado abaixo de 50% de vida
+Reinforced Steel,2,50,ranged_damage:+2;engineering:+3;speed:-3,
+Retromation's Hoodie,4,110,range:-80,+2% Attack Speed por 1% Dodge
+Riposte,2,40,melee_damage:+2,contra-ataque ao esquivar
+Ritual,2,60,damage_pct:+6;life_steal:+2;engineering:-2,
+Sad Tomato,3,50,hp_regen:+8,comeca waves com -50% de vida
+Saltwater,2,50,melee_damage:+2;attack_speed:+3;elemental_damage:-1,+10% Speed por 3s ao levar dano
+Scar,1,25,xp_gain:+20;range:-8,
+Scarf,3,80,hp_regen:+4;melee_damage:+4;speed:+4,+25% velocidade dos inimigos na proxima wave
+Scope,2,48,ranged_damage:+2;range:+25;attack_speed:-7,
+Shackles,3,80,hp_regen:+8;engineering:+8;range:+80,Speed limitado
+Shady Potion,2,48,luck:+20;hp_regen:-2,
+Shmoop,3,60,max_hp:+6;hp_regen:+2;melee_damage:-2;ranged_damage:-1,
+Sifd's Relic,4,100,armor:+3,+100% atracao instantanea de material
+Small Magazine,2,60,ranged_damage:+2;attack_speed:+10;damage_pct:-6,
+Snail,2,40,speed:-3,-8% velocidade dos inimigos
+Spicy Sauce,2,40,max_hp:+3,50% de chance de explodir ao pegar consumivel
+Spider,4,110,damage_pct:+12;dodge:-3;harvesting:-5,+6% Attack Speed por arma diferente
+Spyglass,2,30,range:+10,-25% preco de reroll
+Starfish,3,75,harvesting:+10,+20% materiais dos inimigos; +15% dano inimigo
+Statue,3,60,speed:-10,+40% Attack Speed parado
+Stone Skin,3,85,attack_speed:-6,+1 Max HP por 1 Armor
+Sunglasses,2,50,crit_chance:+10;armor:-1,
+Tentacle,2,35,crit_chance:+3,+20% de chance de curar 1 HP ao matar em critico
+Terrified Onion,1,15,speed:+4;luck:-5,
+Toolbox,3,55,engineering:+6;attack_speed:-8,
+Torture,4,100,max_hp:+15,restaura 5 HP/s (unica forma de cura)
+Toxic Sludge,1,20,elemental_damage:+2;dodge:-2,
+Tractor,3,70,harvesting:+40;damage_pct:-8,
+Triangle of Power,3,65,damage_pct:+20;armor:+1,-2% dano ao levar dano ate o fim da wave

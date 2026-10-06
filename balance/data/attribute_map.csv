@@ -1,0 +1,37 @@
+our_attribute,brotato_stat,scale,manual_gold_per_unit,game_adjust,up_ref_units,kind,notes
+max_hp,max_hp,1,,1.0,3,fit,1 ponto nosso = 1 Max HP do Brotato.
+hp_regeneration,hp_regen,1,,1.0,1,fit,1 ponto nosso = 1 HP Regen do Brotato.
+life_steal_chance,life_steal,100,,1.0,0.01,fit,0.02 = 2% de Life Steal.
+base_damage,damage_pct,100,,1.0,0.05,fit,0.05 = +5% Damage.
+melee_damage,melee_damage,1,,1.0,2,fit,Dano plano melee.
+ranged_damage,ranged_damage,1,,1.0,1,fit,Dano plano ranged.
+elemental_damage,elemental_damage,1,,0.5,1,fit,PREMISSA: só a Green Laser usa Elemental na demo; desconto de 50% sobre o valor do Brotato.
+bonus_attack_speed,attack_speed,100,,1.0,0.05,fit,0.1 = +10% Attack Speed.
+crit_damage_chance,crit_chance,100,,1.0,0.03,fit,0.01 = +1% de chance de crítico.
+player_range,range,1,,1.0,15,fit,Mesma unidade do Brotato (o efeito real depende do range_scaling de cada arma).
+defense_ratio,armor,100,,1.0,0.01,fit,Convenção do design: 0.01 = 1 Armor (A = defense_ratio x 100).
+dodge_chance,dodge,100,,1.0,0.03,fit,0.2 = 20% de Dodge.
+movement_speed_multiplier,speed,100,,1.2,0.03,assumption,PREMISSA: velocidade vale mais num platformer (x1.2).
+luck,luck,1,,1.0,5,fit,Mesma unidade do Brotato.
+hustle,harvesting,1,,1.0,,fit,Design Worker Chris: hustle ~ Harvesting. O estudo anterior mantém Hustle separado (retorno por wave); aqui usa o valor do Brotato.
+knockback_force,knockback,1,,1.0,,assumption,PREMISSA: 1 ponto nosso = 1 Knockback do Brotato (o estudo anterior sugere unidades internas x20; pendente da issue T-05). Poucos itens do Brotato calibram este stat.
+xp_gain,xp_gain,100,,1.0,,fit,0.25 = +25% XP Gain. Poucos itens do Brotato calibram este stat.
+consumable_heal,consumable_heal,1,,1.0,,fit,1 ponto = +1 HP de consumível (Lemonade/Jerky/Alien Worm). Poucos itens do Brotato calibram este stat.
+pickup_range,pickup_range,1.6667,,1.0,,assumption,PREMISSA: 12 pontos nossos ~ 20% de pickup range do Brotato (conversão pelo Gnome: -12 aqui = -20% lá). Poucos itens do Brotato calibram este stat.
+jump_force,speed,0.1,,1.2,,assumption,PREMISSA: 1 ponto de jump_force (+70 = Rocket Boots) vale 0.1% de Speed do Brotato; sem equivalente direto. Plataforma: x1.2.
+max_jumps,speed,6,,1.2,,assumption,PREMISSA: 1 pulo extra (Frog Leg) vale ~6% de Speed (escolhido para ficar na faixa de preço de um item Tier 2; sem equivalente no Brotato e sem validação externa). Plataforma: x1.2.
+items_price,,0,-300,1.0,,manual,PREMISSA: Brotato Coupon (-5% de preço = 15 gold) é a única âncora. -0.05 vira +15 gold (desconto é bom; por isso o valor por unidade é negativo).
+bonus_store_reroll,,0,30,1.0,,manual,PREMISSA: Brotato Dangerous Bunny (+1 reroll grátis) custa 30 gold.
+auto_magnet_on_drop_chance,,0,30,1.0,,manual,PREMISSA: conveniência de coleta (sem poder de combate). 1.0 = 100% de atração instantânea ~ 30 gold; âncoras fracas: Brotato Baby Gecko 18g e Sifd's Relic 100g (junto com +3 Armor).
+victim_additional_health_drop_chance,,0,400,1.0,,manual,PREMISSA: cura por evento; 0.05 ~ 20 gold (classe Cute Monkey/Goblet no Brotato: 25-70 gold).
+projectile_bounces,,0,30,1.0,,manual,PREMISSA: +1 ricochete ~ 30 gold (Brotato Ricochet custa 110 com -25% Damage; só ranged).
+piercing,,0,25,1.0,,manual,PREMISSA: +1 perfuração ~ 25 gold (Brotato Sharp Bullet custa 25 com penalidades). Só ranged.
+pierce_damage_falloff,,0,0,1.0,,manual,Nenhum item ativo usa; valor 0 até haver item ativo.
+explosion_damage,,0,0,1.0,,manual,PREMISSA: nenhuma arma da demo explode; então explosão vale 0.
+explosion_scale,,0,0,1.0,,manual,PREMISSA: igual a explosion_damage (0 na demo).
+gold_gain,,0,0,1.0,,manual,Multiplicador de gold reservado para sistemas específicos (estudo anterior); sem valor.
+drop_collection_damage_chance,,0,0,1.0,,manual,Nenhum item ativo usa; valor 0.
+drop_collection_damage_amount,,0,0,1.0,,manual,Nenhum item ativo usa; valor 0.
+enemy_quantity,,0,0,1.0,,manual,Modificador de risco/performance; valor 0 (nenhum item ativo usa).
+enemy_movement_speed,,0,0,1.0,,manual,Nenhum item ativo usa; valor 0.
+enemy_max_hp,,0,0,1.0,,manual,Nenhum item ativo usa; valor 0.
