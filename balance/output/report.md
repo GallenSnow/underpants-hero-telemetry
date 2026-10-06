@@ -17,33 +17,27 @@ Gerado por `balance/value_model.py`. Fonte dos itens: `balance/data/snapshot/ite
 
 | Medida | Valor |
 |---|---|
-| Itens do Brotato na base | 157 |
-| Itens 'limpos' (só stats planos conhecidos) | 87 |
-| Itens usados no ajuste final (sem outliers) | 75 |
-| R² (itens do ajuste final) | 0.803 |
-| R² (todos os itens limpos, incluindo outliers) | 0.509 |
-| Erro % absoluto mediano (no ajuste) | 15.3% |
-| Erro % absoluto médio (no ajuste) | 18.9% |
-| Erro % absoluto mediano deixando um item de fora (validação) | 23.3% |
+| Itens do Brotato na base | 241 |
+| Itens 'limpos' (só stats planos conhecidos) | 93 |
+| Itens usados no ajuste final (sem outliers) | 87 |
+| R² (itens do ajuste final) | 0.762 |
+| R² (todos os itens limpos, incluindo outliers) | 0.717 |
+| Erro % absoluto mediano (no ajuste) | 16.9% |
+| Erro % absoluto médio (no ajuste) | 19.0% |
+| Erro % absoluto mediano deixando um item de fora (validação) | 23.7% |
 
 Outliers (erro maior que 50%) retirados do ajuste. Preço no Brotato x valor segundo o modelo:
 
 | Item Brotato | Tier | Preço | Valor do modelo | Ratio |
 |---|---|---|---|---|
-| Book | 1 | 15 | 26.0 | 1.74 |
-| Cog | 2 | 35 | 10.1 | 0.29 |
-| Diploma | 4 | 90 | 151.1 | 1.68 |
-| Energy Bracelet | 2 | 55 | 29.3 | 0.53 |
-| Gambling Token | 2 | 50 | 16.9 | 0.34 |
-| Gnome | 4 | 100 | 165.2 | 1.65 |
-| Goat Skull | 1 | 25 | 7.1 | 0.28 |
-| Lens | 1 | 20 | 5.9 | 0.29 |
-| Mastery | 2 | 55 | 3.1 | 0.06 |
-| Potato | 4 | 95 | 174.4 | 1.84 |
-| Small Magazine | 2 | 60 | 22.0 | 0.37 |
-| Toolbox | 3 | 55 | 20.7 | 0.38 |
+| Alien Worm | 1 | 15 | 27.4 | 1.82 |
+| Boiling Water | 1 | 30 | 12.6 | 0.42 |
+| Energy Bracelet | 2 | 55 | 22.4 | 0.41 |
+| Gambling Token | 2 | 50 | 19.7 | 0.39 |
+| Lens | 1 | 20 | 10.1 | 0.50 |
+| Mastery | 2 | 55 | 16.3 | 0.30 |
 
-Pacotes com muitos stats pequenos (como o Potato) saem com valor bem acima do preço no próprio Brotato: o jogo original vende esses pacotes com desconto. O mesmo vale para o nosso Cauldron Family Casserole.
+Penalidades pesam 0.5 vezes o bônus equivalente (parâmetro `--penalty-weight`), no ajuste e na avaliação.
 
 Leitura honesta: o Brotato não precifica por uma fórmula; os preços são arredondados à mão e variam por tier. O modelo captura a ordem de grandeza, não o preço exato. Use ratios entre 0.75 e 1.33 como 'ok'.
 
@@ -51,26 +45,26 @@ Leitura honesta: o Brotato não precifica por uma fórmula; os preços são arre
 
 | Stat | Gold por unidade | Itens no ajuste | Confiança |
 |---|---|---|---|
-| Max HP | 7.08 | 18 | boa |
-| HP Regeneration | 9.48 | 15 | boa |
-| % Life Steal | 15.53 | 12 | boa |
-| % Damage | 5.53 | 16 | boa |
-| Melee Damage | 6.52 | 16 | boa |
-| Ranged Damage | 12.01 | 13 | boa |
-| Elemental Damage | 14.17 | 10 | boa |
-| % Attack Speed | 3.12 | 10 | boa |
-| % Crit Chance | 6.24 | 13 | boa |
-| Engineering | 7.61 | 7 | média |
-| Range | 1.22 | 13 | boa |
-| Armor | 23.81 | 11 | boa |
-| % Dodge | 5.09 | 11 | boa |
-| % Speed | 6.55 | 12 | boa |
-| Luck | 3.34 | 12 | boa |
-| Harvesting | 3.03 | 8 | boa |
-| Knockback | 1.81 | 8 | boa |
-| % XP Gain | 1.92 | 4 | média |
-| % Pickup Range | 0.86 | 2 | baixa (n<4) |
-| HP de consumível | 20.09 | 2 | baixa (n<4) |
+| Max HP | 6.29 | 19 | boa |
+| HP Regeneration | 7.45 | 14 | boa |
+| % Life Steal | 12.59 | 14 | boa |
+| % Damage | 4.24 | 19 | boa |
+| Melee Damage | 5.86 | 19 | boa |
+| Ranged Damage | 12.56 | 15 | boa |
+| Elemental Damage | 7.86 | 13 | boa |
+| % Attack Speed | 2.61 | 13 | boa |
+| % Crit Chance | 4.82 | 14 | boa |
+| Engineering | 6.92 | 12 | boa |
+| Range | 1.00 | 15 | boa |
+| Armor | 18.65 | 14 | boa |
+| % Dodge | 3.63 | 13 | boa |
+| % Speed | 5.20 | 14 | boa |
+| Luck | 2.75 | 15 | boa |
+| Harvesting | 2.52 | 10 | boa |
+| Knockback | 2.45 | 10 | boa |
+| % XP Gain | 1.37 | 5 | média |
+| % Pickup Range | 0.82 | 3 | baixa (n<4) |
+| HP de consumível | 12.79 | 2 | baixa (n<4) |
 
 Engineering foi ajustado com os itens do Brotato, mas **não existe no nosso jogo** (não entra no cálculo).
 
@@ -78,27 +72,27 @@ Engineering foi ajustado com os itens do Brotato, mas **não existe no nosso jog
 
 | Atributo | Gold por unidade nossa | Ajuste do jogo | Origem | Gold por 1 UP (estudo anterior) |
 |---|---|---|---|---|
-| max_hp | 7.077 | 1.00 | ajuste Brotato | 21.2 |
-| hp_regeneration | 9.478 | 1.00 | ajuste Brotato | 9.5 |
-| life_steal_chance | 1553.263 | 1.00 | ajuste Brotato | 15.5 |
-| base_damage | 552.744 | 1.00 | ajuste Brotato | 27.6 |
-| melee_damage | 6.519 | 1.00 | ajuste Brotato | 13.0 |
-| ranged_damage | 12.012 | 1.00 | ajuste Brotato | 12.0 |
-| elemental_damage | 14.173 | 1.00 | ajuste Brotato | 14.2 |
-| bonus_attack_speed | 311.655 | 1.00 | ajuste Brotato | 15.6 |
-| crit_damage_chance | 624.402 | 1.00 | ajuste Brotato | 18.7 |
-| player_range | 1.224 | 1.00 | ajuste Brotato | 18.4 |
-| defense_ratio | 2381.135 | 1.00 | ajuste Brotato | 23.8 |
-| dodge_chance | 509.355 | 1.00 | ajuste Brotato | 15.3 |
-| movement_speed_multiplier | 786.326 | 1.20 | ajuste + premissa | 23.6 |
-| luck | 3.342 | 1.00 | ajuste Brotato | 16.7 |
-| hustle | 3.028 | 1.00 | ajuste Brotato |  |
-| knockback_force | 1.813 | 1.00 | ajuste + premissa |  |
-| xp_gain | 192.446 | 1.00 | ajuste Brotato |  |
-| consumable_heal | 20.094 | 1.00 | ajuste Brotato |  |
-| pickup_range | 1.434 | 1.00 | ajuste + premissa |  |
-| jump_force | 0.786 | 1.20 | ajuste + premissa |  |
-| max_jumps | 47.180 | 1.20 | ajuste + premissa |  |
+| max_hp | 6.285 | 1.00 | ajuste Brotato | 18.9 |
+| hp_regeneration | 7.455 | 1.00 | ajuste Brotato | 7.5 |
+| life_steal_chance | 1259.001 | 1.00 | ajuste Brotato | 12.6 |
+| base_damage | 423.802 | 1.00 | ajuste Brotato | 21.2 |
+| melee_damage | 5.857 | 1.00 | ajuste Brotato | 11.7 |
+| ranged_damage | 12.557 | 1.00 | ajuste Brotato | 12.6 |
+| elemental_damage | 7.858 | 1.00 | ajuste Brotato | 7.9 |
+| bonus_attack_speed | 260.708 | 1.00 | ajuste Brotato | 13.0 |
+| crit_damage_chance | 482.216 | 1.00 | ajuste Brotato | 14.5 |
+| player_range | 0.995 | 1.00 | ajuste Brotato | 14.9 |
+| defense_ratio | 1864.579 | 1.00 | ajuste Brotato | 18.6 |
+| dodge_chance | 362.737 | 1.00 | ajuste Brotato | 10.9 |
+| movement_speed_multiplier | 623.492 | 1.20 | ajuste + premissa | 18.7 |
+| luck | 2.752 | 1.00 | ajuste Brotato | 13.8 |
+| hustle | 2.519 | 1.00 | ajuste Brotato |  |
+| knockback_force | 3.600 | 1.00 | premissa manual |  |
+| xp_gain | 136.542 | 1.00 | ajuste Brotato |  |
+| consumable_heal | 12.794 | 1.00 | ajuste Brotato |  |
+| pickup_range | 1.375 | 1.00 | ajuste + premissa |  |
+| jump_force | 0.623 | 1.20 | ajuste + premissa |  |
+| max_jumps | 37.410 | 1.20 | ajuste + premissa |  |
 | items_price | -300.000 | 1.00 | premissa manual |  |
 | bonus_store_reroll | 30.000 | 1.00 | premissa manual |  |
 | auto_magnet_on_drop_chance | 30.000 | 1.00 | premissa manual |  |
@@ -121,52 +115,52 @@ A última coluna reaproveita a tabela 'T1 reference' da aba `item_budget` do est
 
 | Tier | Itens | Preço mín. | Mediana | Preço máx. |
 |---|---|---|---|---|
-| 1 | 46 | 8 | 20 | 30 |
-| 2 | 43 | 25 | 45 | 65 |
-| 3 | 40 | 50 | 72.5 | 90 |
-| 4 | 28 | 90 | 100 | 130 |
+| 1 | 62 | 8 | 20 | 30 |
+| 2 | 71 | 25 | 45 | 75 |
+| 3 | 68 | 23 | 70 | 100 |
+| 4 | 40 | 80 | 100 | 130 |
 
-Limiares ajustados (preço mínimo de cada tier, acerto de 93% dos itens do Brotato): **Tier 2 a partir de 35, Tier 3 a partir de 65, Tier 4 a partir de 90**. Os tiers 2 e 3 se sobrepõem muito no Brotato, então a sugestão de tier é aproximada.
+Limiares ajustados (preço mínimo de cada tier, acerto de 88% dos itens do Brotato): **Tier 2 a partir de 30, Tier 3 a partir de 60, Tier 4 a partir de 90**. Os tiers 2 e 3 se sobrepõem muito no Brotato, então a sugestão de tier é aproximada.
 
 ## 15 itens com preço mais alto que o valor (ratio mais baixo)
 
 | ID | Nome | Tier | Preço | Valor | Ratio | Sugerido | Premissa? |
 |---|---|---|---|---|---|---|---|
-| item_103 | Lucky Coin | 4 | 105 | -41.4 | -0.39 |  |  |
-| item_45 | Behemoth Foam Fists | 2 | 55 | 3.1 | 0.06 | 5 |  |
-| keep_out_tape | Keep-Out Tape | 1 | 20 | 2.5 | 0.13 | 5 | sim |
-| item_83 | Bedspring | 3 | 70 | 10.9 | 0.16 | 10 | sim |
-| item_13 | Dumbbell | 1 | 25 | 7.1 | 0.28 | 5 |  |
-| item_76 | Slushie Cup | 2 | 50 | 14.2 | 0.28 | 15 |  |
-| item_5 | Anger | 1 | 20 | 5.7 | 0.28 | 5 |  |
-| item_60 | Lens | 1 | 20 | 5.9 | 0.29 | 5 |  |
-| item_32 | Black Bandana | 2 | 50 | 16.9 | 0.34 | 15 |  |
-| item_38 | Sunglasses | 2 | 60 | 22.0 | 0.37 | 20 |  |
+| item_103 | Lucky Coin | 4 | 105 | -13.8 | -0.13 |  |  |
+| item_76 | Slushie Cup | 2 | 50 | 7.9 | 0.16 | 10 |  |
+| item_45 | Behemoth Foam Fists | 2 | 55 | 16.3 | 0.30 | 15 |  |
+| item_83 | Bedspring | 3 | 70 | 21.6 | 0.31 | 20 | sim |
+| item_5 | Anger | 1 | 20 | 7.5 | 0.38 | 10 |  |
+| item_32 | Black Bandana | 2 | 50 | 19.7 | 0.39 | 20 |  |
 | fast_hands | Kleptomania | 1 | 18 | 7.5 | 0.42 | 10 | sim |
-| item_1 | Brass Knuckles | 1 | 18 | 8.3 | 0.46 | 10 |  |
+| fire_potion | Dirty Underwear | 1 | 30 | 12.6 | 0.42 | 15 |  |
+| item_31 | Wizard Hat | 2 | 45 | 22.2 | 0.49 | 20 |  |
 | item_35 | Heartbound Necklace | 2 | 40 | 20.0 | 0.50 | 20 | sim |
-| item_18 | Clover | 1 | 25 | 12.6 | 0.50 | 15 |  |
-| item_14 | Heroes Magazine | 1 | 30 | 15.6 | 0.52 | 15 |  |
+| item_60 | Lens | 1 | 20 | 10.1 | 0.50 | 10 |  |
+| item_13 | Dumbbell | 1 | 25 | 12.7 | 0.51 | 15 |  |
+| item_1 | Brass Knuckles | 1 | 18 | 9.5 | 0.53 | 10 |  |
+| item_30 | Welder's Mask | 2 | 55 | 32.1 | 0.58 | 30 |  |
+| item_20 | Photon Core Bullets | 1 | 25 | 15.0 | 0.60 | 15 |  |
 
 ## 15 itens com preço mais baixo que o valor (ratio mais alto)
 
 | ID | Nome | Tier | Preço | Valor | Ratio | Sugerido | Premissa? |
 |---|---|---|---|---|---|---|---|
-| item_10 | Glasses | 1 | 18 | 35.4 | 1.96 | 35 |  |
-| gnome | Tunnel Vision | 4 | 100 | 189.7 | 1.90 | 190 |  |
-| item_108 | Cauldron Family Casserole | 4 | 95 | 178.3 | 1.88 | 180 |  |
-| item_37 | Clean Socks | 2 | 30 | 48.8 | 1.63 | 50 | sim |
-| cap | Cap | 1 | 20 | 31.5 | 1.57 | 30 | sim |
-| item_84 | Running Shoes | 3 | 65 | 98.5 | 1.52 | 100 | sim |
-| item_25 | Water Jug | 2 | 35 | 50.1 | 1.43 | 50 |  |
-| item_40 | Handwraps | 2 | 40 | 56.7 | 1.42 | 55 |  |
-| item_107 | Lucky Teddy | 4 | 100 | 140.8 | 1.41 | 140 |  |
-| item_59 | Lemonade | 1 | 15 | 20.1 | 1.34 | 20 |  |
-| expired_health_potion | Hamburguer | 1 | 15 | 20.1 | 1.34 | 20 |  |
-| item_44 | Radioactive Soap | 2 | 45 | 57.0 | 1.27 | 55 |  |
-| item_53 | Vampire Comic | 1 | 20 | 25.0 | 1.25 | 25 |  |
-| item_106 | Regenerative Patch | 4 | 105 | 129.0 | 1.23 | 130 |  |
-| item_16 | Experimental Injection | 1 | 20 | 24.5 | 1.23 | 25 |  |
+| item_10 | Glasses | 1 | 18 | 39.3 | 2.18 | 40 |  |
+| expired_health_potion | Hamburguer | 1 | 15 | 27.4 | 1.82 | 25 |  |
+| item_108 | Cauldron Family Casserole | 4 | 95 | 142.6 | 1.50 | 145 |  |
+| item_37 | Clean Socks | 2 | 30 | 43.6 | 1.45 | 45 | sim |
+| item_84 | Running Shoes | 3 | 65 | 89.1 | 1.37 | 90 | sim |
+| big_arms | Nuclear Proteins | 4 | 105 | 143.2 | 1.36 | 145 |  |
+| item_107 | Lucky Teddy | 4 | 100 | 133.6 | 1.34 | 135 |  |
+| item_104 | Weighted Gauntlets | 4 | 110 | 146.1 | 1.33 | 145 |  |
+| gnome | Tunnel Vision | 4 | 100 | 128.9 | 1.29 | 130 |  |
+| item_106 | Regenerative Patch | 4 | 105 | 131.2 | 1.25 | 130 |  |
+| cap | Cap | 1 | 20 | 24.9 | 1.25 | 25 | sim |
+| item_51 | Fire Escape Map | 1 | 15 | 18.1 | 1.20 | 20 | sim |
+| item_92 | Overtime Contract | 3 | 70 | 83.8 | 1.20 | 85 |  |
+| item_16 | Experimental Injection | 1 | 20 | 23.4 | 1.17 | 25 |  |
+| item_56 | Fertilizer | 1 | 15 | 17.2 | 1.15 | 15 |  |
 
 'Premissa?' = mais da metade do valor vem de atributos com premissa manual; confirme esses antes de mexer no preço.
 
@@ -174,61 +168,136 @@ Limiares ajustados (preço mínimo de cada tier, acerto de 93% dos itens do Brot
 
 ### cape — Survival Instincts
 
-- Tier 1, preço 110, máximo INF.
-- Valor do modelo: **114.1**; ratio: **1.04**; sugestão: preço 115, tier 4.
-- Composição: life_steal_chance +0.05 = +77.7; dodge_chance +0.2 = +101.9; melee_damage -2 = -13.0; ranged_damage -2 = -24.0; elemental_damage -2 = -28.3.
-- Avisos: tier 1 na planilha, mas preco 110 cai na faixa do tier 4.
+- Tier 4, preço 110, máximo INF.
+- Valor do modelo: **109.2**; ratio: **0.99**; sugestão: preço 110, tier 4.
+- Composição: life_steal_chance +0.05 = +63.0; dodge_chance +0.2 = +72.5; melee_damage -2 = -5.9; ranged_damage -2 = -12.6; elemental_damage -2 = -7.9.
 - Nota: Equivale ao Cape do Brotato (Tier 4, 110 gold). Se a coluna Tier mostrar 1, o desencontro é de Tier, não de preço.
 
 ### item_72 — Participation Medal
 
 - Tier 2, preço 55, máximo INF.
-- Valor do modelo: **60.2**; ratio: **1.10**; sugestão: preço 60, tier 2.
-- Composição: max_hp +3 = +21.2; base_damage +0.03 = +16.6; defense_ratio +0.01 = +23.8; movement_speed_multiplier +0.03 = +23.6; crit_damage_chance -0.04 = -25.0.
+- Valor do modelo: **59.3**; ratio: **1.08**; sugestão: preço 60, tier 3.
+- Composição: max_hp +3 = +18.9; base_damage +0.03 = +12.7; defense_ratio +0.01 = +18.6; movement_speed_multiplier +0.03 = +18.7; crit_damage_chance -0.04 = -9.6.
 - Nota: Pacote misto de cinco stats pequenos, como o Medal do Brotato (Tier 2, 55 gold). A soma de stats planos é a avaliação mais confiável aqui.
 
 ### item_108 — Cauldron Family Casserole
 
 - Tier 4, preço 95, máximo INF.
-- Valor do modelo: **178.3**; ratio: **1.88**; sugestão: preço 180, tier 4.
-- Composição: max_hp +3 = +21.2; hp_regeneration +2 = +19.0; life_steal_chance +0.01 = +15.5; base_damage +0.05 = +27.6; bonus_attack_speed +0.05 = +15.6; movement_speed_multiplier +0.03 = +23.6; dodge_chance +0.03 = +15.3; defense_ratio +0.01 = +23.8; luck +5 = +16.7.
+- Valor do modelo: **142.6**; ratio: **1.50**; sugestão: preço 145, tier 4.
+- Composição: max_hp +3 = +18.9; hp_regeneration +2 = +14.9; life_steal_chance +0.01 = +12.6; base_damage +0.05 = +21.2; bonus_attack_speed +0.05 = +13.0; movement_speed_multiplier +0.03 = +18.7; dodge_chance +0.03 = +10.9; defense_ratio +0.01 = +18.6; luck +5 = +13.8.
 - Avisos: PRECO BAIXO vs valor (ratio>1.33).
-- Nota: Equivale ao Potato do Brotato (Tier 4, 95 gold), nove stats pequenos. No próprio Brotato esse pacote sai com valor muito acima do preço (ver outliers): o ratio alto é, em parte, o desconto de pacote do original, não necessariamente erro de preço.
+- Nota: Equivale ao Potato do Brotato (Tier 4, 95 gold), nove stats pequenos. No próprio Brotato o Potato sai com ratio igual ao nosso (ver a checagem de cópias): o ratio alto é, em parte, o desconto de pacote do original, não necessariamente erro de preço.
 
 ### item_109 — Pocket Teleporter
 
 - Tier 4, preço 100, máximo 1.
-- Valor do modelo: **101.4**; ratio: **1.01**; sugestão: preço 100, tier 4.
-- Composição: defense_ratio +0.03 = +71.4; auto_magnet_on_drop_chance +1 = +30.0.
+- Valor do modelo: **85.9**; ratio: **0.86**; sugestão: preço 85, tier 3.
+- Composição: defense_ratio +0.03 = +55.9; auto_magnet_on_drop_chance +1 = +30.0.
 - Avisos: UNICO/HOOK: stats planos subestimam o item.
 - Nota: Máximo 1 e atração automática de drops: o valor de coleta é uma premissa manual (ver attribute_map.csv). Stats planos subestimam o item.
 
 ### item_103 — Lucky Coin
 
 - Tier 4, preço 105, máximo 1.
-- Valor do modelo: **-41.4**; ratio: **-0.39**; sugestão: preço , tier .
-- Composição: crit_damage_chance +0.01 = +6.2; defense_ratio -0.02 = -47.6.
+- Valor do modelo: **-13.8**; ratio: **-0.13**; sugestão: preço -, tier -.
+- Composição: crit_damage_chance +0.01 = +4.8; defense_ratio -0.02 = -18.6.
 - Avisos: UNICO/HOOK: stats planos subestimam o item; PRECO ALTO vs valor (ratio<0.75); valor liquido <= 0.
 - Nota: Máximo 1. No Brotato, o Lucky Coin dá +2 Luck por 1% de Crit Chance e -2 Armor; o efeito principal é essa conversão, que só existe como hook. Sem o hook, sobram os stats planos, que somam pouco ou negativo.
 
 ### vampire_fang — Vampire Teeth
 
 - Tier 1, preço 25, máximo INF.
-- Valor do modelo: **21.6**; ratio: **0.86**; sugestão: preço 20, tier 1.
-- Composição: life_steal_chance +0.02 = +31.1; hp_regeneration -1 = -9.5.
+- Valor do modelo: **21.5**; ratio: **0.86**; sugestão: preço 20, tier 1.
+- Composição: life_steal_chance +0.02 = +25.2; hp_regeneration -1 = -3.7.
 - Nota: Âncora simples de Life Steal: Fresh Meat (+2% Life Steal, -1 HP Regen, 25 gold) e Bat (+2%, -2 Harvesting, 20 gold) no Brotato.
 
 ### heavy_bullets — High Caliber
 
 - Tier 4, preço 100, máximo INF.
-- Valor do modelo: **80.8**; ratio: **0.81**; sugestão: preço 80, tier 3.
-- Composição: ranged_damage +5 = +60.1; base_damage +0.1 = +55.3; player_range +10 = +12.2; bonus_attack_speed -0.05 = -15.6; crit_damage_chance -0.05 = -31.2.
+- Valor do modelo: **96.5**; ratio: **0.97**; sugestão: preço 95, tier 4.
+- Composição: ranged_damage +5 = +62.8; base_damage +0.1 = +42.4; player_range +10 = +10.0; bonus_attack_speed -0.05 = -6.5; crit_damage_chance -0.05 = -12.1.
 - Nota: Equivale ao Heavy Bullets do Brotato (Tier 4, 100 gold, com +10 Range). Bom teste de calibração: se o ratio ficar longe de 1, suspeite do valor de % Damage, Range e Attack Speed.
+
+## Checagem: cópias exatas de itens do Brotato
+
+Itens nossos com o mesmo pacote de stats de um item do Brotato (depois de converter as unidades). Se o modelo estiver bem calibrado, o ratio deles fica perto de 1.0, desde que o preço também seja o do Brotato.
+
+| Nosso item | Item do Brotato | Preço Brotato | Nosso preço | Valor do modelo | Ratio (valor/preço nosso) | Valor/preço Brotato |
+|---|---|---|---|---|---|---|
+| expired_health_potion Hamburguer | Alien Worm | 15 | 15 | 27.4 | 1.82 | 1.82 |
+| vampire_fang Vampire Teeth | Fresh Meat | 25 | 25 | 21.5 | 0.86 | 0.86 |
+| fire_potion Dirty Underwear | Boiling Water | 30 | 30 | 12.6 | 0.42 | 0.42 |
+| heavy_bullets High Caliber | Heavy Bullets | 100 | 100 | 96.5 | 0.97 | 0.97 |
+| cape Survival Instincts | Cape | 110 | 110 | 109.2 | 0.99 | 0.99 |
+| item_2 Scars | Broken Mouth | 25 | 25 | 27.7 | 1.11 | 1.11 |
+| straw Straw | Butterfly | 30 | 30 | 21.3 | 0.71 | 0.71 |
+| item_4 Elbow Pads | Cake | 15 | 15 | 16.7 | 1.12 | 1.12 |
+| item_6 Coffee | Coffee | 20 | 20 | 21.8 | 1.09 | 1.09 |
+| item_9 Knight Helmet | Defective Steroids | 20 | 20 | 20.4 | 1.02 | 1.02 |
+| item_13 Dumbbell | Goat Skull | 25 | 25 | 12.7 | 0.51 | 0.51 |
+| item_14 Heroes Magazine | Hedgehog | 30 | 30 | 20.5 | 0.68 | 0.68 |
+| item_15 Iron Boots | Helmet | 15 | 15 | 12.4 | 0.83 | 0.83 |
+| item_16 Experimental Injection | Injection | 20 | 20 | 23.4 | 1.17 | 1.17 |
+| item_17 Weak Spots | Insanity | 20 | 20 | 22.6 | 1.13 | 1.13 |
+| item_18 Clover | Lost Duck | 25 | 25 | 18.1 | 0.72 | 0.72 |
+| item_19 Tea | Mushroom | 25 | 25 | 19.6 | 0.78 | 0.78 |
+| item_21 Vitamins | Plant | 15 | 15 | 16.1 | 1.07 | 1.07 |
+| item_22 Rabbit Foot | Propeller Hat | 28 | 28 | 23.3 | 0.83 | 0.83 |
+| item_24 Reactor Fragment | Toxic Sludge | 20 | 20 | 12.1 | 0.60 | 0.60 |
+| item_31 Wizard Hat | Fuel Tank | 45 | 45 | 22.2 | 0.49 | 0.49 |
+| item_32 Black Bandana | Gambling Token | 50 | 50 | 19.7 | 0.39 | 0.39 |
+| item_38 Sunglasses | Small Magazine | 60 | 60 | 38.5 | 0.64 | 0.64 |
+| item_39 Leather Jacket | Sunglasses | 50 | 50 | 38.9 | 0.78 | 0.78 |
+| item_41 Tainted Bloodstone | Alien Magic | 85 | 85 | 61.6 | 0.73 | 0.73 |
+| item_42 Ancient Manuscript | Bean Teacher | 70 | 70 | 55.7 | 0.80 | 0.80 |
+| item_44 Radioactive Soap | Leather Vest | 45 | 45 | 49.6 | 1.10 | 1.10 |
+| item_45 Behemoth Foam Fists | Mastery | 55 | 55 | 16.3 | 0.30 | 0.30 |
+| item_46 Plot-Armor Underwear | Metal Plate | 40 | 40 | 30.9 | 0.77 | 0.77 |
+| item_48 Leprechaun Top Hat | Shady Potion | 48 | 48 | 47.6 | 0.99 | 0.99 |
+| item_51 Fire Escape Map | Terrified Onion | 15 | 15 | 18.1 | 1.20 | 1.20 |
+| item_52 Action Figure | Missile | 45 | 45 | 37.2 | 0.83 | 0.83 |
+| item_53 Vampire Comic | Bat | 20 | 20 | 22.7 | 1.13 | 1.13 |
+| item_54 Charcoal | Charcoal | 20 | 20 | 17.1 | 0.85 | 0.85 |
+| item_56 Fertilizer | Fertilizer | 15 | 15 | 17.2 | 1.15 | 1.15 |
+| item_57 Gummy Berserker | Gummy Berserker | 25 | 25 | 28.6 | 1.14 | 1.14 |
+| item_58 Head Injury | Head Injury | 25 | 25 | 21.4 | 0.86 | 0.86 |
+| item_59 Lemonade | Lemonade | 15 | 15 | 12.8 | 0.85 | 0.85 |
+| item_60 Lens | Lens | 20 | 20 | 10.1 | 0.50 | 0.50 |
+| item_61 Peaceful Bee | Peaceful Bee | 18 | 18 | 15.4 | 0.85 | 0.85 |
+| item_62 Field Notes | Scar | 25 | 25 | 23.3 | 0.93 | 0.93 |
+| item_67 Blindfold | Blindfold | 45 | 45 | 34.8 | 0.77 | 0.77 |
+| item_68 Plasma Bag | Blood Leech | 45 | 45 | 36.3 | 0.81 | 0.81 |
+| item_69 Cracked Visor | Cyclops Worm | 45 | 45 | 44.9 | 1.00 | 1.00 |
+| item_71 Pocket Dumbbell | Little Muscley Dude | 50 | 50 | 41.5 | 0.83 | 0.83 |
+| item_72 Participation Medal | Medal | 55 | 55 | 59.3 | 1.08 | 1.08 |
+| item_74 Scope | Scope | 48 | 48 | 40.9 | 0.85 | 0.85 |
+| item_77 Wheelbarrow | Wheelbarrow | 40 | 40 | 31.0 | 0.77 | 0.77 |
+| item_82 Boss's Hat | Bowler Hat | 75 | 75 | 72.9 | 0.97 | 0.97 |
+| item_84 Running Shoes | Fin | 65 | 65 | 89.1 | 1.37 | 1.37 |
+| item_85 Overcharged Battery | Glass Cannon | 75 | 75 | 78.0 | 1.04 | 1.04 |
+| item_87 Lucky Charm | Lucky Charm | 75 | 75 | 70.4 | 0.94 | 0.94 |
+| item_90 Poisonous Tonic | Poisonous Tonic | 80 | 80 | 57.7 | 0.72 | 0.72 |
+| item_91 Comfort Blanket | Shmoop | 60 | 60 | 40.5 | 0.67 | 0.67 |
+| item_92 Overtime Contract | Tractor | 70 | 70 | 83.8 | 1.20 | 1.20 |
+| item_95 Motorcycle Helmet | Warrior Helmet | 80 | 80 | 71.8 | 0.90 | 0.90 |
+| item_96 Packed Lunch | Wheat | 85 | 85 | 65.9 | 0.78 | 0.78 |
+| item_97 Cardboard Wings | Wings | 85 | 85 | 84.3 | 0.99 | 0.99 |
+| item_102 Jet Skates | Jet Pack | 100 | 100 | 104.8 | 1.05 | 1.05 |
+| item_105 Night Goggles | Night Goggles | 95 | 95 | 103.3 | 1.09 | 1.09 |
+| item_106 Regenerative Patch | Octopus | 105 | 105 | 131.2 | 1.25 | 1.25 |
+| item_107 Lucky Teddy | Panda | 100 | 100 | 133.6 | 1.34 | 1.34 |
+| item_108 Cauldron Family Casserole | Potato | 95 | 95 | 142.6 | 1.50 | 1.50 |
+
+Quando o ratio de uma cópia exata foge de 1.0 e o preço é igual ao do Brotato, o desvio é do modelo (stat mal calibrado), não do item. Itens que no Brotato têm um efeito extra que não copiamos (por exemplo o Coil, com +1% Damage por ponto de Knockback) não aparecem aqui porque o pacote de stats não é idêntico.
+
+## Nota do designer
+
+O designer confirmou que o nosso Glasses (item_10) é um item original, não baseado em nenhum item do Brotato.
 
 ## Lacunas de dados
 
-- A base do Brotato foi coletada da wiki em 157 itens, de Acid até Tyler (ordem alfabética); itens de Ugly Tooth em diante não foram coletados.
-- Itens do Brotato sem stats planos (pets, torres, efeitos de wave) ficam fora do ajuste; eles aparecem na base apenas com notas.
-- O Brotato muda preços por wave e por dificuldade; usamos o preço base da wiki.
+- Base do Brotato: 241 itens (208 do jogo base e 33 de DLC), extraídos dos dados decompilados do jogo (repositório mojimoon/brotato). 168 conferidos contra a wiki (coluna `verified`); os demais, em geral itens de DLC ou sem página na wiki, não foram conferidos.
+- Itens do Brotato sem stats planos (pets, torres, efeitos de wave) ficam fora do ajuste; aparecem na base só com notas.
+- O Brotato muda preços por dificuldade; usamos o preço base.
 - Stats com poucos itens (Knockback, XP Gain, Pickup Range, HP de consumível) têm valor pouco confiável.
 - Atributos só do nosso jogo dependem de premissas manuais; nenhum dado de partida (telemetria) entrou ainda.

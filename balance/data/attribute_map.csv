@@ -14,7 +14,7 @@ dodge_chance,dodge,100,,1.0,0.03,fit,0.2 = 20% de Dodge.
 movement_speed_multiplier,speed,100,,1.2,0.03,assumption,PREMISSA: velocidade vale mais num platformer (x1.2).
 luck,luck,1,,1.0,5,fit,Mesma unidade do Brotato.
 hustle,harvesting,1,,1.0,,fit,Design Worker Chris: hustle ~ Harvesting. O estudo anterior mantém Hustle separado (retorno por wave); aqui usa o valor do Brotato.
-knockback_force,knockback,1,,1.0,,assumption,PREMISSA: 1 ponto nosso = 1 Knockback do Brotato (o estudo anterior sugere unidades internas x20; pendente da issue T-05). Poucos itens do Brotato calibram este stat.
+knockback_force,,0,3.6,1.0,,manual,PREMISSA ANCORADA: 1 ponto nosso = 1 Knockback do Brotato. O ajuste dá 2.45 gold/ponto e o Coil (+5 Knockback e +1% Damage por ponto) implica ~14; os 10 itens do Brotato com Knockback implicam valores de -10 a +29 (não identificável). Âncora = média dos dois itens mais limpos: Boxing Glove (4.0) e Black Belt (3.1). O Bedspring não chega a 1.0 porque falta o hook de dano do Coil. O estudo anterior sugere unidades internas x20 (issue T-05).
 xp_gain,xp_gain,100,,1.0,,fit,0.25 = +25% XP Gain. Poucos itens do Brotato calibram este stat.
 consumable_heal,consumable_heal,1,,1.0,,fit,1 ponto = +1 HP de consumível (Lemonade/Jerky/Alien Worm). Poucos itens do Brotato calibram este stat.
 pickup_range,pickup_range,1.6667,,1.0,,assumption,PREMISSA: 12 pontos nossos ~ 20% de pickup range do Brotato (conversão pelo Gnome: -12 aqui = -20% lá). Poucos itens do Brotato calibram este stat.

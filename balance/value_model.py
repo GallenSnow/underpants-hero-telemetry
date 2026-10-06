@@ -64,6 +64,8 @@ def load_brotato(path):
     items = []
     with open(path, newline="", encoding="utf-8") as fh:
         for row in csv.DictReader(fh):
+            if float(row["price"]) <= 1:
+                continue  # itens que nao sao vendidos na loja (preco simbolico 1)
             stats = {}
             for tok in filter(None, row["stats"].split(";")):
                 k, v = tok.split(":")
@@ -71,6 +73,8 @@ def load_brotato(path):
             items.append({
                 "name": row["name"], "tier": int(row["tier"]), "price": float(row["price"]),
                 "stats": stats, "notes": row["notes"].strip(),
+                "verified": row.get("verified", "").strip() == "yes",
+                "dlc": "[DLC]" in row.get("source", ""),
             })
     return items
 
@@ -108,12 +112,23 @@ def nnls_relative(rows, prices, stats, w0=None, sweeps=5000):
     return w
 
 
+def eff(stats_dict, pw):
+    """Aplica o peso de penalidade: quantidades negativas valem pw vezes (padrao 0.5)."""
+    return {k: (v if v > 0 else v * pw) for k, v in stats_dict.items()}
+
+
 def predict(stats_dict, weights, stats):
     return sum(stats_dict.get(s, 0.0) * weights[k] for k, s in enumerate(stats))
 
 
-def fit_brotato(items):
-    pool = [it for it in items if is_simple(it)]
+def fit_brotato(items, pw):
+    pool = []
+    for it in items:
+        if is_simple(it):
+            it = dict(it)
+            it["raw_stats"] = it["stats"]
+            it["stats"] = eff(it["stats"], pw)  # ja com o peso de penalidade aplicado
+            pool.append(it)
     stats = [s for s in FIT_STATS if any(s in it["stats"] for it in pool)]
     rows = [it["stats"] for it in pool]
     prices = [it["price"] for it in pool]
@@ -246,7 +261,32 @@ def load_items(configs):
     return items
 
 
-def evaluate(items, amap, bands):
+def exact_copies(items, amap, brotato, rows):
+    """Itens nossos cujo pacote de stats (convertido para unidades do Brotato) e identico ao de um item do Brotato."""
+    flat = [b for b in brotato if b["stats"] and not b["notes"]]
+    byid = {r["id"]: r for r in rows}
+    out = []
+    for it in items:
+        vec = {}
+        ok = bool(it["attrs"])
+        for k, v in it["attrs"]:
+            m = amap.get(k)
+            if m is None or m["source"] != "fit" or k in ("jump_force", "max_jumps", "pickup_range"):
+                ok = False
+                break
+            vec[m["stat"]] = vec.get(m["stat"], 0.0) + v * m["scale"]
+        if not ok:
+            continue
+        vec = {k: round(v, 6) for k, v in vec.items() if abs(v) > 1e-9}
+        for b in flat:
+            if {k: round(v, 6) for k, v in b["stats"].items()} == vec:
+                r = byid[it["id"]]
+                out.append((it, b, r))
+                break
+    return out
+
+
+def evaluate(items, amap, bands, pw):
     out = []
     for it in items:
         total = 0.0
@@ -261,6 +301,8 @@ def evaluate(items, amap, bands):
                 parts.append("%s %+g = ?" % (k, v))
                 continue
             gold = v * m["per_unit"]
+            if gold < 0:
+                gold *= pw  # penalidades valem pw vezes o bonus equivalente
             total += gold
             all_abs += abs(gold)
             if m["source"] == "manual" or m["kind"] == "assumption":
@@ -331,7 +373,7 @@ def md_table(headers, rows):
 SPECIAL_NOTES = {
     "cape": "Equivale ao Cape do Brotato (Tier 4, 110 gold). Se a coluna Tier mostrar 1, o desencontro é de Tier, não de preço.",
     "item_72": "Pacote misto de cinco stats pequenos, como o Medal do Brotato (Tier 2, 55 gold). A soma de stats planos é a avaliação mais confiável aqui.",
-    "item_108": "Equivale ao Potato do Brotato (Tier 4, 95 gold), nove stats pequenos. No próprio Brotato esse pacote sai com valor muito acima do preço (ver outliers): o ratio alto é, em parte, o desconto de pacote do original, não necessariamente erro de preço.",
+    "item_108": "Equivale ao Potato do Brotato (Tier 4, 95 gold), nove stats pequenos. No próprio Brotato o Potato sai com ratio igual ao nosso (ver a checagem de cópias): o ratio alto é, em parte, o desconto de pacote do original, não necessariamente erro de preço.",
     "item_109": "Máximo 1 e atração automática de drops: o valor de coleta é uma premissa manual (ver attribute_map.csv). Stats planos subestimam o item.",
     "item_103": "Máximo 1. No Brotato, o Lucky Coin dá +2 Luck por 1% de Crit Chance e -2 Armor; o efeito principal é essa conversão, que só existe como hook. Sem o hook, sobram os stats planos, que somam pouco ou negativo.",
     "vampire_fang": "Âncora simples de Life Steal: Fresh Meat (+2% Life Steal, -1 HP Regen, 25 gold) e Bat (+2%, -2 Harvesting, 20 gold) no Brotato.",
@@ -339,7 +381,7 @@ SPECIAL_NOTES = {
 }
 
 
-def write_report(path, args, values, quality, bands, band_acc, brotato, amap, rows, configs_used, detail):
+def write_report(path, args, values, quality, bands, band_acc, brotato, amap, rows, configs_used, detail, items):
     L = []
     a = L.append
     a("# Relatório do modelo de valor em gold — Underpants Hero")
@@ -378,8 +420,7 @@ def write_report(path, args, values, quality, bands, band_acc, brotato, amap, ro
                    [[it["name"], it["tier"], "%g" % it["price"], fmt(v, 1), fmt(v / it["price"])]
                     for it, v in sorted(quality["outlier_rows"], key=lambda x: x[0]["name"])]))
         a("")
-        a("Pacotes com muitos stats pequenos (como o Potato) saem com valor bem acima do preço no próprio Brotato: o jogo original vende esses pacotes com desconto. "
-          "O mesmo vale para o nosso Cauldron Family Casserole.")
+        a("Penalidades pesam %g vezes o bônus equivalente (parâmetro `--penalty-weight`), no ajuste e na avaliação." % args.penalty_weight)
         a("")
     a("Leitura honesta: o Brotato não precifica por uma fórmula; os preços são arredondados à mão e variam por tier. "
       "O modelo captura a ordem de grandeza, não o preço exato. Use ratios entre 0.75 e 1.33 como 'ok'.")
@@ -464,17 +505,38 @@ def write_report(path, args, values, quality, bands, band_acc, brotato, amap, ro
         a("")
         a("- Tier %s, preço %g, máximo %s." % (r["tier"], r["price"], r["max_count"]))
         a("- Valor do modelo: **%s**; ratio: **%s**; sugestão: preço %s, tier %s." % (
-            fmt(r["model_value"], 1), "-" if r["ratio"] is None else fmt(r["ratio"]), r["suggested_price"], r["suggested_tier"]))
+            fmt(r["model_value"], 1), "-" if r["ratio"] is None else fmt(r["ratio"]),
+            r["suggested_price"] if r["suggested_price"] != "" else "-", r["suggested_tier"] if r["suggested_tier"] != "" else "-"))
         a("- Composição: %s." % r["breakdown"])
         if r["flags"]:
             a("- Avisos: %s." % "; ".join(r["flags"]))
         a("- Nota: %s" % SPECIAL_NOTES.get(iid, ""))
         a("")
+    a("## Checagem: cópias exatas de itens do Brotato")
+    a("")
+    a("Itens nossos com o mesmo pacote de stats de um item do Brotato (depois de converter as unidades). Se o modelo estiver bem calibrado, o ratio deles fica perto de 1.0, "
+      "desde que o preço também seja o do Brotato.")
+    a("")
+    cps = exact_copies(items, amap, brotato, rows)
+    a(md_table(["Nosso item", "Item do Brotato", "Preço Brotato", "Nosso preço", "Valor do modelo", "Ratio (valor/preço nosso)", "Valor/preço Brotato"],
+               [[it["id"] + " " + it["name"], b["name"], "%g" % b["price"], "%g" % r["price"], fmt(r["model_value"], 1),
+                 "-" if r["ratio"] is None else fmt(r["ratio"]), fmt(r["model_value"] / b["price"])] for it, b, r in cps]))
+    a("")
+    a("Quando o ratio de uma cópia exata foge de 1.0 e o preço é igual ao do Brotato, o desvio é do modelo (stat mal calibrado), não do item. "
+      "Itens que no Brotato têm um efeito extra que não copiamos (por exemplo o Coil, com +1% Damage por ponto de Knockback) não aparecem aqui porque o pacote de stats não é idêntico.")
+    a("")
+    a("## Nota do designer")
+    a("")
+    a("O designer confirmou que o nosso Glasses (item_10) é um item original, não baseado em nenhum item do Brotato.")
+    a("")
     a("## Lacunas de dados")
     a("")
-    a("- A base do Brotato foi coletada da wiki em %d itens, de Acid até Tyler (ordem alfabética); itens de Ugly Tooth em diante não foram coletados." % quality["n_total"])
-    a("- Itens do Brotato sem stats planos (pets, torres, efeitos de wave) ficam fora do ajuste; eles aparecem na base apenas com notas.")
-    a("- O Brotato muda preços por wave e por dificuldade; usamos o preço base da wiki.")
+    nver = sum(1 for b in brotato if b["verified"])
+    ndlc = sum(1 for b in brotato if b["dlc"])
+    a("- Base do Brotato: %d itens (%d do jogo base e %d de DLC), extraídos dos dados decompilados do jogo (repositório mojimoon/brotato). %d conferidos contra a wiki (coluna `verified`); os demais, em geral itens de DLC ou sem página na wiki, não foram conferidos." % (
+        len(brotato), len(brotato) - ndlc, ndlc, nver))
+    a("- Itens do Brotato sem stats planos (pets, torres, efeitos de wave) ficam fora do ajuste; aparecem na base só com notas.")
+    a("- O Brotato muda preços por dificuldade; usamos o preço base.")
     a("- Stats com poucos itens (Knockback, XP Gain, Pickup Range, HP de consumível) têm valor pouco confiável.")
     a("- Atributos só do nosso jogo dependem de premissas manuais; nenhum dado de partida (telemetria) entrou ainda.")
     a("")
@@ -486,6 +548,8 @@ def main():
     ap = argparse.ArgumentParser(description="Modelo de valor em gold dos itens do Underpants Hero")
     ap.add_argument("--configs", default=None, help="pasta com item_config.csv")
     ap.add_argument("--out", default=os.path.join(HERE, "output"), help="pasta de saida")
+    ap.add_argument("--penalty-weight", type=float, default=0.5,
+                    help="peso das penalidades (stats negativos) no ajuste e na avaliacao; padrao 0.5")
     ap.add_argument("--data", default=os.path.join(HERE, "data"), help="pasta com brotato_items.csv e attribute_map.csv")
     args = ap.parse_args()
 
@@ -502,15 +566,15 @@ def main():
     os.makedirs(args.out, exist_ok=True)
 
     brotato = load_brotato(os.path.join(args.data, "brotato_items.csv"))
-    values, quality, detail = fit_brotato(brotato)
+    values, quality, detail = fit_brotato(brotato, args.penalty_weight)
     bands, band_acc = fit_tier_bands(brotato)
     amap = load_attribute_map(os.path.join(args.data, "attribute_map.csv"), values)
     items = load_items(configs)
-    rows = evaluate(items, amap, bands)
+    rows = evaluate(items, amap, bands, args.penalty_weight)
 
     write_csv(rows, os.path.join(args.out, "item_values.csv"))
     write_report(os.path.join(args.out, "report.md"), args, values, quality, bands, band_acc,
-                 brotato, amap, rows, configs, detail)
+                 brotato, amap, rows, configs, detail, items)
 
     print("Itens ativos: %d | Brotato: %d (ajuste: %d) | R2 %.3f | erro mediano %.1f%%"
           % (len(rows), len(brotato), quality["n_fit"], quality["r2"], quality["median_pct"] * 100))

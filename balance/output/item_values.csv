@@ -1,94 +1,94 @@
 id,name,tier,price,model_value,ratio,suggested_price,suggested_tier,flags,breakdown,assumption_share
-gravitational_gloves,Toy Arm,1,25,19.02,0.76,20,1,depende de premissa (100% do valor),pickup_range +12 = +17.2; knockback_force +1 = +1.8,1.00
-expired_health_potion,Hamburguer,1,15,20.09,1.34,20,1,PRECO BAIXO vs valor (ratio>1.33),max_hp +3 = +21.2; hp_regeneration +2 = +19.0; consumable_heal -1 = -20.1,0.00
+gravitational_gloves,Toy Arm,1,25,20.10,0.80,20,1,depende de premissa (100% do valor),pickup_range +12 = +16.5; knockback_force +1 = +3.6,1.00
+expired_health_potion,Hamburguer,1,15,27.37,1.82,25,1,PRECO BAIXO vs valor (ratio>1.33),max_hp +3 = +18.9; hp_regeneration +2 = +14.9; consumable_heal -1 = -6.4,0.00
 fast_hands,Kleptomania,1,18,7.50,0.42,10,1,depende de premissa (100% do valor) | PRECO ALTO vs valor (ratio<0.75),auto_magnet_on_drop_chance +0.25 = +7.5,1.00
-vampire_fang,Vampire Teeth,1,25,21.59,0.86,20,1,,life_steal_chance +0.02 = +31.1; hp_regeneration -1 = -9.5,0.00
-cap,Cap,1,20,31.45,1.57,30,1,depende de premissa (100% do valor) | PRECO BAIXO vs valor (ratio>1.33),movement_speed_multiplier +0.04 = +31.5,1.00
-fire_potion,Dirty Underwear,1,30,21.27,0.71,20,1,PRECO ALTO vs valor (ratio<0.75),elemental_damage +2 = +28.3; max_hp -1 = -7.1,0.00
-heavy_bullets,High Caliber,4,100,80.77,0.81,80,3,,ranged_damage +5 = +60.1; base_damage +0.1 = +55.3; player_range +10 = +12.2; bonus_attack_speed -0.05 = -15.6; crit_damage_chance -0.05 = -31.2,0.00
-big_arms,Nuclear Proteins,4,105,122.80,1.17,125,4,,melee_damage +12 = +78.2; ranged_damage +6 = +72.1; knockback_force +3 = +5.4; bonus_attack_speed -0.03 = -9.3; movement_speed_multiplier -0.03 = -23.6,0.15
-cape,Survival Instincts,1,110,114.13,1.04,115,4,"tier 1 na planilha, mas preco 110 cai na faixa do tier 4",life_steal_chance +0.05 = +77.7; dodge_chance +0.2 = +101.9; melee_damage -2 = -13.0; ranged_damage -2 = -24.0; elemental_damage -2 = -28.3,0.00
-gnome,Tunnel Vision,4,100,189.71,1.90,190,4,PRECO BAIXO vs valor (ratio>1.33),melee_damage +10 = +65.2; elemental_damage +10 = +141.7; pickup_range -12 = -17.2,0.08
-item_1,Brass Knuckles,1,18,8.33,0.46,10,1,PRECO ALTO vs valor (ratio<0.75),melee_damage +1 = +6.5; knockback_force +1 = +1.8,0.22
-item_2,Scars,1,25,25.91,1.04,25,1,,max_hp +5 = +35.4; hp_regeneration -1 = -9.5,0.00
-straw,Straw,1,30,16.89,0.56,15,1,PRECO ALTO vs valor (ratio<0.75),life_steal_chance +0.02 = +31.1; elemental_damage -1 = -14.2,0.00
-item_4,Elbow Pads,1,15,15.70,1.05,15,1,,max_hp +3 = +21.2; base_damage -0.01 = -5.5,0.00
-item_5,Anger,1,20,5.69,0.28,5,1,PRECO ALTO vs valor (ratio<0.75),melee_damage +1 = +6.5; crit_damage_chance +0.01 = +6.2; max_hp -1 = -7.1,0.00
-item_6,Coffee,1,20,20.11,1.01,20,1,,bonus_attack_speed +0.1 = +31.2; base_damage -0.02 = -11.1,0.00
+vampire_fang,Vampire Teeth,1,25,21.45,0.86,20,1,,life_steal_chance +0.02 = +25.2; hp_regeneration -1 = -3.7,0.00
+cap,Cap,1,20,24.94,1.25,25,1,depende de premissa (100% do valor),movement_speed_multiplier +0.04 = +24.9,1.00
+fire_potion,Dirty Underwear,1,30,12.57,0.42,15,1,"PRECO ALTO vs valor (ratio<0.75) | tier 1 na planilha, mas preco 30 cai na faixa do tier 2",elemental_damage +2 = +15.7; max_hp -1 = -3.1,0.00
+heavy_bullets,High Caliber,4,100,96.54,0.97,95,4,,ranged_damage +5 = +62.8; base_damage +0.1 = +42.4; player_range +10 = +10.0; bonus_attack_speed -0.05 = -6.5; crit_damage_chance -0.05 = -12.1,0.00
+big_arms,Nuclear Proteins,4,105,143.16,1.36,145,4,PRECO BAIXO vs valor (ratio>1.33),melee_damage +12 = +70.3; ranged_damage +6 = +75.3; knockback_force +3 = +10.8; bonus_attack_speed -0.03 = -3.9; movement_speed_multiplier -0.03 = -9.4,0.12
+cape,Survival Instincts,4,110,109.22,0.99,110,4,,life_steal_chance +0.05 = +63.0; dodge_chance +0.2 = +72.5; melee_damage -2 = -5.9; ranged_damage -2 = -12.6; elemental_damage -2 = -7.9,0.00
+gnome,Tunnel Vision,4,100,128.91,1.29,130,4,,melee_damage +10 = +58.6; elemental_damage +10 = +78.6; pickup_range -12 = -8.2,0.06
+item_1,Brass Knuckles,1,18,9.46,0.53,10,1,PRECO ALTO vs valor (ratio<0.75),melee_damage +1 = +5.9; knockback_force +1 = +3.6,0.38
+item_2,Scars,1,25,27.70,1.11,30,2,,max_hp +5 = +31.4; hp_regeneration -1 = -3.7,0.00
+straw,Straw,1,30,21.25,0.71,20,1,"PRECO ALTO vs valor (ratio<0.75) | tier 1 na planilha, mas preco 30 cai na faixa do tier 2",life_steal_chance +0.02 = +25.2; elemental_damage -1 = -3.9,0.00
+item_4,Elbow Pads,1,15,16.74,1.12,15,1,,max_hp +3 = +18.9; base_damage -0.01 = -2.1,0.00
+item_5,Anger,1,20,7.54,0.38,10,1,PRECO ALTO vs valor (ratio<0.75),melee_damage +1 = +5.9; crit_damage_chance +0.01 = +4.8; max_hp -1 = -3.1,0.00
+item_6,Coffee,1,20,21.83,1.09,20,1,,bonus_attack_speed +0.1 = +26.1; base_damage -0.02 = -4.2,0.00
 item_7,Membership Card,1,15,15.00,1.00,15,1,depende de premissa (100% do valor),items_price -0.05 = +15.0,1.00
-item_9,Knight Helmet,1,20,17.84,0.89,20,1,,melee_damage +2 = +13.0; max_hp +2 = +14.2; bonus_attack_speed -0.03 = -9.3,0.00
-item_10,Glasses,1,18,35.36,1.96,35,2,PRECO BAIXO vs valor (ratio>1.33),dodge_chance +0.01 = +5.1; ranged_damage +3 = +36.0; xp_gain -0.03 = -5.8,0.00
-item_13,Dumbbell,1,25,7.07,0.28,5,1,PRECO ALTO vs valor (ratio<0.75),melee_damage +3 = +19.6; crit_damage_chance -0.02 = -12.5,0.00
-item_14,Heroes Magazine,1,30,15.57,0.52,15,1,PRECO ALTO vs valor (ratio<0.75),melee_damage +2 = +13.0; ranged_damage +1 = +12.0; hp_regeneration -1 = -9.5,0.00
-item_15,Iron Boots,1,15,8.08,0.54,10,1,PRECO ALTO vs valor (ratio<0.75),defense_ratio +0.01 = +23.8; movement_speed_multiplier -0.02 = -15.7,0.40
-item_16,Experimental Injection,1,20,24.54,1.23,25,1,,max_hp -2 = -14.2; base_damage +0.07 = +38.7,0.00
-item_17,Weak Spots,1,20,20.88,1.04,20,1,,base_damage -0.03 = -16.6; crit_damage_chance +0.06 = +37.5,0.00
-item_18,Clover,1,25,12.56,0.50,15,1,PRECO ALTO vs valor (ratio<0.75),elemental_damage -1 = -14.2; luck +8 = +26.7,0.00
-item_19,Tea,1,25,21.75,0.87,20,1,,hp_regeneration +3 = +28.4; luck -2 = -6.7,0.00
-item_20,Photon Core Bullets,1,25,20.75,0.83,20,1,,ranged_damage +1 = +12.0; elemental_damage +1 = +14.2; knockback_force -3 = -5.4,0.17
-item_21,Vitamins,1,15,12.90,0.86,15,1,,life_steal_chance -0.01 = -15.5; hp_regeneration +3 = +28.4,0.00
-item_22,Rabbit Foot,1,28,22.36,0.80,20,1,,base_damage -0.02 = -11.1; luck +10 = +33.4,0.00
-item_24,Reactor Fragment,1,20,18.16,0.91,20,1,,elemental_damage +2 = +28.3; dodge_chance -0.02 = -10.2,0.00
-item_25,Water Jug,2,35,50.09,1.43,50,2,PRECO BAIXO vs valor (ratio>1.33),consumable_heal +3 = +60.3; dodge_chance -0.02 = -10.2,0.00
-item_26,Lasagna,2,65,42.81,0.66,45,2,"PRECO ALTO vs valor (ratio<0.75) | tier 2 na planilha, mas preco 65 cai na faixa do tier 3",max_hp +8 = +56.6; dodge_chance -0.02 = -10.2; knockback_force -2 = -3.6,0.05
-item_27,Karategi,2,50,46.37,0.93,45,2,,xp_gain +0.25 = +48.1; melee_damage +3 = +19.6; knockback_force +3 = +5.4; luck -8 = -26.7,0.05
-item_28,Photon Mutation,2,40,31.58,0.79,30,1,,elemental_damage +2 = +28.3; hp_regeneration +2 = +19.0; movement_speed_multiplier -0.02 = -15.7,0.25
-item_29,Counterfeit Token,2,30,30.00,1.00,30,1,"depende de premissa (100% do valor) | tier 2 na planilha, mas preco 30 cai na faixa do tier 1",bonus_store_reroll +1 = +30.0,1.00
-item_30,Welder's Mask,2,55,41.79,0.76,40,2,,crit_damage_chance +0.06 = +37.5; elemental_damage +2 = +28.3; ranged_damage -2 = -24.0,0.00
-item_31,Wizard Hat,2,45,38.16,0.85,40,2,,elemental_damage +4 = +56.7; melee_damage -1 = -6.5; ranged_damage -1 = -12.0,0.00
-item_32,Black Bandana,2,50,16.94,0.34,15,1,PRECO ALTO vs valor (ratio<0.75),dodge_chance +0.08 = +40.7; defense_ratio -0.01 = -23.8,0.00
-item_34,Rocket Boots,3,55,55.04,1.00,55,2,"depende de premissa (100% do valor) | tier 3 na planilha, mas preco 55 cai na faixa do tier 2",jump_force +70 = +55.0,1.00
+item_9,Knight Helmet,1,20,20.37,1.02,20,1,,melee_damage +2 = +11.7; max_hp +2 = +12.6; bonus_attack_speed -0.03 = -3.9,0.00
+item_10,Glasses,1,18,39.25,2.18,40,2,PRECO BAIXO vs valor (ratio>1.33),dodge_chance +0.01 = +3.6; ranged_damage +3 = +37.7; xp_gain -0.03 = -2.0,0.00
+item_13,Dumbbell,1,25,12.75,0.51,15,1,PRECO ALTO vs valor (ratio<0.75),melee_damage +3 = +17.6; crit_damage_chance -0.02 = -4.8,0.00
+item_14,Heroes Magazine,1,30,20.54,0.68,20,1,"PRECO ALTO vs valor (ratio<0.75) | tier 1 na planilha, mas preco 30 cai na faixa do tier 2",melee_damage +2 = +11.7; ranged_damage +1 = +12.6; hp_regeneration -1 = -3.7,0.00
+item_15,Iron Boots,1,15,12.41,0.83,10,1,,defense_ratio +0.01 = +18.6; movement_speed_multiplier -0.02 = -6.2,0.25
+item_16,Experimental Injection,1,20,23.38,1.17,25,1,,max_hp -2 = -6.3; base_damage +0.07 = +29.7,0.00
+item_17,Weak Spots,1,20,22.58,1.13,25,1,,base_damage -0.03 = -6.4; crit_damage_chance +0.06 = +28.9,0.00
+item_18,Clover,1,25,18.09,0.72,20,1,PRECO ALTO vs valor (ratio<0.75),elemental_damage -1 = -3.9; luck +8 = +22.0,0.00
+item_19,Tea,1,25,19.61,0.78,20,1,,hp_regeneration +3 = +22.4; luck -2 = -2.8,0.00
+item_20,Photon Core Bullets,1,25,15.02,0.60,15,1,PRECO ALTO vs valor (ratio<0.75),ranged_damage +1 = +12.6; elemental_damage +1 = +7.9; knockback_force -3 = -5.4,0.21
+item_21,Vitamins,1,15,16.07,1.07,15,1,,life_steal_chance -0.01 = -6.3; hp_regeneration +3 = +22.4,0.00
+item_22,Rabbit Foot,1,28,23.29,0.83,25,1,,base_damage -0.02 = -4.2; luck +10 = +27.5,0.00
+item_24,Reactor Fragment,1,20,12.09,0.60,10,1,PRECO ALTO vs valor (ratio<0.75),elemental_damage +2 = +15.7; dodge_chance -0.02 = -3.6,0.00
+item_25,Water Jug,2,35,34.75,0.99,35,2,,consumable_heal +3 = +38.4; dodge_chance -0.02 = -3.6,0.00
+item_26,Lasagna,2,65,43.05,0.66,45,2,"PRECO ALTO vs valor (ratio<0.75) | tier 2 na planilha, mas preco 65 cai na faixa do tier 3",max_hp +8 = +50.3; dodge_chance -0.02 = -3.6; knockback_force -2 = -3.6,0.06
+item_27,Karategi,2,50,51.50,1.03,50,2,,xp_gain +0.25 = +34.1; melee_damage +3 = +17.6; knockback_force +3 = +10.8; luck -8 = -11.0,0.15
+item_28,Photon Mutation,2,40,24.39,0.61,25,1,PRECO ALTO vs valor (ratio<0.75),elemental_damage +2 = +15.7; hp_regeneration +2 = +14.9; movement_speed_multiplier -0.02 = -6.2,0.17
+item_29,Counterfeit Token,2,30,30.00,1.00,30,2,depende de premissa (100% do valor),bonus_store_reroll +1 = +30.0,1.00
+item_30,Welder's Mask,2,55,32.09,0.58,30,2,PRECO ALTO vs valor (ratio<0.75),crit_damage_chance +0.06 = +28.9; elemental_damage +2 = +15.7; ranged_damage -2 = -12.6,0.00
+item_31,Wizard Hat,2,45,22.23,0.49,20,1,PRECO ALTO vs valor (ratio<0.75),elemental_damage +4 = +31.4; melee_damage -1 = -2.9; ranged_damage -1 = -6.3,0.00
+item_32,Black Bandana,2,50,19.70,0.39,20,1,PRECO ALTO vs valor (ratio<0.75),dodge_chance +0.08 = +29.0; defense_ratio -0.01 = -9.3,0.00
+item_34,Rocket Boots,3,55,43.64,0.79,45,2,"depende de premissa (100% do valor) | tier 3 na planilha, mas preco 55 cai na faixa do tier 2",jump_force +70 = +43.6,1.00
 item_35,Heartbound Necklace,2,40,20.00,0.50,20,1,depende de premissa (100% do valor) | PRECO ALTO vs valor (ratio<0.75),victim_additional_health_drop_chance +0.05 = +20.0,1.00
-item_36,Frog Leg,2,45,47.18,1.05,45,2,UNICO/HOOK: stats planos subestimam o item | depende de premissa (100% do valor),max_jumps +1 = +47.2,1.00
-item_37,Clean Socks,2,30,48.75,1.63,50,2,"depende de premissa (82% do valor) | PRECO BAIXO vs valor (ratio>1.33) | tier 2 na planilha, mas preco 30 cai na faixa do tier 1",movement_speed_multiplier +0.08 = +62.9; max_hp -2 = -14.2,0.82
-item_38,Sunglasses,2,60,22.02,0.37,20,1,PRECO ALTO vs valor (ratio<0.75),ranged_damage +2 = +24.0; bonus_attack_speed +0.1 = +31.2; base_damage -0.06 = -33.2,0.00
-item_39,Leather Jacket,2,50,38.63,0.77,40,2,,crit_damage_chance +0.1 = +62.4; defense_ratio -0.01 = -23.8,0.00
-item_40,Handwraps,2,40,56.69,1.42,55,2,PRECO BAIXO vs valor (ratio>1.33),life_steal_chance +0.04 = +62.1; knockback_force -3 = -5.4,0.08
-item_41,Tainted Bloodstone,3,85,58.32,0.69,60,2,PRECO ALTO vs valor (ratio<0.75),max_hp +8 = +56.6; hp_regeneration +3 = +28.4; luck -8 = -26.7,0.00
-item_42,Ancient Manuscript,3,70,65.16,0.93,65,3,,xp_gain +0.5 = +96.2; life_steal_chance -0.02 = -31.1,0.00
-item_44,Radioactive Soap,2,45,56.95,1.27,55,2,,dodge_chance +0.06 = +30.6; defense_ratio +0.02 = +47.6; max_hp -3 = -21.2,0.00
-item_45,Behemoth Foam Fists,2,55,3.08,0.06,5,1,PRECO ALTO vs valor (ratio<0.75),melee_damage +6 = +39.1; ranged_damage -3 = -36.0,0.00
-item_46,Plot-Armor Underwear,2,40,31.04,0.78,30,1,,defense_ratio +0.02 = +47.6; base_damage -0.03 = -16.6,0.00
-item_48,Leprechaun Top Hat,2,48,47.88,1.00,50,2,,luck +20 = +66.8; hp_regeneration -2 = -19.0,0.00
-item_51,Fire Escape Map,1,15,14.74,0.98,15,1,depende de premissa (65% do valor),movement_speed_multiplier +0.04 = +31.5; luck -5 = -16.7,0.65
-item_52,Action Figure,2,45,42.81,0.95,45,2,,base_damage +0.1 = +55.3; bonus_attack_speed -0.04 = -12.5,0.00
-item_53,Vampire Comic,1,20,25.01,1.25,25,1,,life_steal_chance +0.02 = +31.1; hustle -2 = -6.1,0.00
-item_54,Charcoal,1,20,21.15,1.06,20,1,,elemental_damage +1 = +14.2; melee_damage +2 = +13.0; hustle -2 = -6.1,0.00
-item_56,Fertilizer,1,15,17.71,1.18,20,1,,hustle +8 = +24.2; melee_damage -1 = -6.5,0.00
-item_57,Gummy Berserker,1,25,22.37,0.89,20,1,,bonus_attack_speed +0.05 = +15.6; player_range +25 = +30.6; defense_ratio -0.01 = -23.8,0.00
-item_58,Head Injury,1,25,23.37,0.93,25,1,,base_damage +0.06 = +33.2; player_range -8 = -9.8,0.00
-item_59,Lemonade,1,15,20.09,1.34,20,1,PRECO BAIXO vs valor (ratio>1.33),consumable_heal +1 = +20.1,0.00
-item_60,Lens,1,20,5.89,0.29,5,1,PRECO ALTO vs valor (ratio<0.75),ranged_damage +1 = +12.0; player_range -5 = -6.1,0.00
-item_61,Peaceful Bee,1,18,13.96,0.78,15,1,,dodge_chance +0.04 = +20.4; hustle +4 = +12.1; melee_damage -1 = -6.5; ranged_damage -1 = -12.0,0.00
-item_62,Field Notes,1,25,28.70,1.15,30,1,,xp_gain +0.2 = +38.5; player_range -8 = -9.8,0.00
-item_66,Hero Pennant,2,55,46.58,0.85,45,2,,player_range +20 = +24.5; bonus_attack_speed +0.1 = +31.2; knockback_force -5 = -9.1,0.14
-item_67,Blindfold,2,45,38.33,0.85,40,2,,crit_damage_chance +0.05 = +31.2; dodge_chance +0.05 = +25.5; player_range -15 = -18.4,0.00
-item_68,Plasma Bag,2,45,40.94,0.91,40,2,,life_steal_chance +0.02 = +31.1; hp_regeneration +2 = +19.0; hustle -3 = -9.1,0.00
-item_69,Cracked Visor,2,45,51.64,1.15,50,2,,base_damage +0.12 = +66.3; player_range -12 = -14.7,0.00
-item_70,Scavenger Glove,2,45,32.22,0.72,30,1,PRECO ALTO vs valor (ratio<0.75),pickup_range +12 = +17.2; hustle +10 = +30.3; dodge_chance -0.03 = -15.3,0.27
-item_71,Pocket Dumbbell,2,50,36.58,0.73,35,2,PRECO ALTO vs valor (ratio<0.75),melee_damage +3 = +19.6; max_hp +5 = +35.4; player_range -15 = -18.4,0.00
-item_72,Participation Medal,2,55,60.24,1.10,60,2,,max_hp +3 = +21.2; base_damage +0.03 = +16.6; defense_ratio +0.01 = +23.8; movement_speed_multiplier +0.03 = +23.6; crit_damage_chance -0.04 = -25.0,0.21
-item_74,Scope,2,48,32.81,0.68,35,2,PRECO ALTO vs valor (ratio<0.75),ranged_damage +2 = +24.0; player_range +25 = +30.6; bonus_attack_speed -0.07 = -21.8,0.00
-item_76,Slushie Cup,2,50,14.17,0.28,15,1,UNICO/HOOK: stats planos subestimam o item | PRECO ALTO vs valor (ratio<0.75),elemental_damage +1 = +14.2,0.00
-item_77,Wheelbarrow,2,40,24.64,0.62,25,1,PRECO ALTO vs valor (ratio<0.75),hustle +16 = +48.5; defense_ratio -0.01 = -23.8,0.00
-item_82,Boss's Hat,3,75,70.32,0.94,70,3,,luck +15 = +50.1; hustle +18 = +54.5; bonus_attack_speed -0.05 = -15.6; crit_damage_chance -0.03 = -18.7,0.00
-item_83,Bedspring,3,70,10.88,0.16,10,1,depende de premissa (100% do valor) | PRECO ALTO vs valor (ratio<0.75),knockback_force +6 = +10.9,1.00
-item_84,Running Shoes,3,65,98.50,1.52,100,4,depende de premissa (52% do valor) | PRECO BAIXO vs valor (ratio>1.33),movement_speed_multiplier +0.1 = +78.6; life_steal_chance +0.03 = +46.6; luck -8 = -26.7,0.52
-item_85,Overcharged Battery,3,75,66.75,0.89,65,3,,base_damage +0.25 = +138.2; defense_ratio -0.03 = -71.4,0.00
-item_87,Lucky Charm,3,75,75.20,1.00,75,3,,luck +30 = +100.3; melee_damage -2 = -13.0; ranged_damage -1 = -12.0,0.00
-item_90,Poisonous Tonic,3,80,61.79,0.77,60,2,,bonus_attack_speed +0.1 = +31.2; crit_damage_chance +0.05 = +31.2; player_range +15 = +18.4; hp_regeneration -2 = -19.0,0.00
-item_91,Comfort Blanket,3,60,36.37,0.61,35,2,"PRECO ALTO vs valor (ratio<0.75) | tier 3 na planilha, mas preco 60 cai na faixa do tier 2",max_hp +6 = +42.5; hp_regeneration +2 = +19.0; melee_damage -2 = -13.0; ranged_damage -1 = -12.0,0.00
-item_92,Overtime Contract,3,70,76.92,1.10,75,3,,hustle +40 = +121.1; base_damage -0.08 = -44.2,0.00
-item_95,Motorcycle Helmet,3,80,67.50,0.84,70,3,,defense_ratio +0.03 = +71.4; max_hp +5 = +35.4; movement_speed_multiplier -0.05 = -39.3,0.27
-item_96,Packed Lunch,3,85,52.04,0.61,50,2,PRECO ALTO vs valor (ratio<0.75),melee_damage +4 = +26.1; ranged_damage +2 = +24.0; hustle +10 = +30.3; elemental_damage -2 = -28.3,0.00
-item_97,Cardboard Wings,3,85,87.01,1.02,85,3,depende de premissa (55% do valor),movement_speed_multiplier +0.1 = +78.6; player_range +30 = +36.7; elemental_damage -2 = -28.3,0.55
-item_102,Jet Skates,4,100,109.69,1.10,110,4,depende de premissa (52% do valor),movement_speed_multiplier +0.15 = +117.9; dodge_chance +0.1 = +50.9; max_hp -5 = -35.4; defense_ratio -0.01 = -23.8,0.52
-item_103,Lucky Coin,4,105,-41.38,-0.39,,,UNICO/HOOK: stats planos subestimam o item | PRECO ALTO vs valor (ratio<0.75) | valor liquido <= 0,crit_damage_chance +0.01 = +6.2; defense_ratio -0.02 = -47.6,0.00
-item_104,Weighted Gauntlets,4,110,119.02,1.08,120,4,,melee_damage +20 = +130.4; hp_regeneration +5 = +47.4; knockback_force +5 = +9.1; base_damage -0.08 = -44.2; movement_speed_multiplier -0.03 = -23.6,0.13
-item_105,Night Goggles,4,95,109.82,1.16,110,4,,crit_damage_chance +0.15 = +93.7; player_range +50 = +61.2; max_hp -3 = -21.2; defense_ratio -0.01 = -23.8,0.00
-item_106,Regenerative Patch,4,105,128.96,1.23,130,4,,max_hp +12 = +84.9; hp_regeneration +5 = +47.4; life_steal_chance +0.03 = +46.6; crit_damage_chance -0.08 = -50.0,0.00
-item_107,Lucky Teddy,4,100,140.84,1.41,140,4,PRECO BAIXO vs valor (ratio>1.33),max_hp +12 = +84.9; luck +25 = +83.5; base_damage -0.05 = -27.6,0.00
-item_108,Cauldron Family Casserole,4,95,178.33,1.88,180,4,PRECO BAIXO vs valor (ratio>1.33),max_hp +3 = +21.2; hp_regeneration +2 = +19.0; life_steal_chance +0.01 = +15.5; base_damage +0.05 = +27.6; bonus_attack_speed +0.05 = +15.6; movement_speed_multiplier +0.03 = +23.6; dodge_chance +0.03 = +15.3; defense_ratio +0.01 = +23.8; luck +5 = +16.7,0.13
-item_109,Pocket Teleporter,4,100,101.43,1.01,100,4,UNICO/HOOK: stats planos subestimam o item,defense_ratio +0.03 = +71.4; auto_magnet_on_drop_chance +1 = +30.0,0.30
-keep_out_tape,Keep-Out Tape,1,20,2.54,0.13,5,1,depende de premissa (58% do valor) | PRECO ALTO vs valor (ratio<0.75),knockback_force +5 = +9.1; melee_damage -1 = -6.5,0.58
+item_36,Frog Leg,2,45,37.41,0.83,35,2,UNICO/HOOK: stats planos subestimam o item | depende de premissa (100% do valor),max_jumps +1 = +37.4,1.00
+item_37,Clean Socks,2,30,43.59,1.45,45,2,depende de premissa (89% do valor) | PRECO BAIXO vs valor (ratio>1.33),movement_speed_multiplier +0.08 = +49.9; max_hp -2 = -6.3,0.89
+item_38,Sunglasses,2,60,38.47,0.64,40,2,"PRECO ALTO vs valor (ratio<0.75) | tier 2 na planilha, mas preco 60 cai na faixa do tier 3",ranged_damage +2 = +25.1; bonus_attack_speed +0.1 = +26.1; base_damage -0.06 = -12.7,0.00
+item_39,Leather Jacket,2,50,38.90,0.78,40,2,,crit_damage_chance +0.1 = +48.2; defense_ratio -0.01 = -9.3,0.00
+item_40,Handwraps,2,40,44.96,1.12,45,2,,life_steal_chance +0.04 = +50.4; knockback_force -3 = -5.4,0.10
+item_41,Tainted Bloodstone,3,85,61.64,0.73,60,3,PRECO ALTO vs valor (ratio<0.75),max_hp +8 = +50.3; hp_regeneration +3 = +22.4; luck -8 = -11.0,0.00
+item_42,Ancient Manuscript,3,70,55.68,0.80,55,2,,xp_gain +0.5 = +68.3; life_steal_chance -0.02 = -12.6,0.00
+item_44,Radioactive Soap,2,45,49.63,1.10,50,2,,dodge_chance +0.06 = +21.8; defense_ratio +0.02 = +37.3; max_hp -3 = -9.4,0.00
+item_45,Behemoth Foam Fists,2,55,16.31,0.30,15,1,PRECO ALTO vs valor (ratio<0.75),melee_damage +6 = +35.1; ranged_damage -3 = -18.8,0.00
+item_46,Plot-Armor Underwear,2,40,30.93,0.77,30,2,,defense_ratio +0.02 = +37.3; base_damage -0.03 = -6.4,0.00
+item_48,Leprechaun Top Hat,2,48,47.59,0.99,50,2,,luck +20 = +55.0; hp_regeneration -2 = -7.5,0.00
+item_51,Fire Escape Map,1,15,18.06,1.20,20,1,depende de premissa (78% do valor),movement_speed_multiplier +0.04 = +24.9; luck -5 = -6.9,0.78
+item_52,Action Figure,2,45,37.17,0.83,35,2,,base_damage +0.1 = +42.4; bonus_attack_speed -0.04 = -5.2,0.00
+item_53,Vampire Comic,1,20,22.66,1.13,25,1,,life_steal_chance +0.02 = +25.2; hustle -2 = -2.5,0.00
+item_54,Charcoal,1,20,17.05,0.85,15,1,,elemental_damage +1 = +7.9; melee_damage +2 = +11.7; hustle -2 = -2.5,0.00
+item_56,Fertilizer,1,15,17.22,1.15,15,1,,hustle +8 = +20.2; melee_damage -1 = -2.9,0.00
+item_57,Gummy Berserker,1,25,28.59,1.14,30,2,,bonus_attack_speed +0.05 = +13.0; player_range +25 = +24.9; defense_ratio -0.01 = -9.3,0.00
+item_58,Head Injury,1,25,21.45,0.86,20,1,,base_damage +0.06 = +25.4; player_range -8 = -4.0,0.00
+item_59,Lemonade,1,15,12.79,0.85,15,1,,consumable_heal +1 = +12.8,0.00
+item_60,Lens,1,20,10.07,0.50,10,1,PRECO ALTO vs valor (ratio<0.75),ranged_damage +1 = +12.6; player_range -5 = -2.5,0.00
+item_61,Peaceful Bee,1,18,15.38,0.85,15,1,,dodge_chance +0.04 = +14.5; hustle +4 = +10.1; melee_damage -1 = -2.9; ranged_damage -1 = -6.3,0.00
+item_62,Field Notes,1,25,23.33,0.93,25,1,,xp_gain +0.2 = +27.3; player_range -8 = -4.0,0.00
+item_66,Hero Pennant,2,55,36.97,0.67,35,2,PRECO ALTO vs valor (ratio<0.75),player_range +20 = +19.9; bonus_attack_speed +0.1 = +26.1; knockback_force -5 = -9.0,0.16
+item_67,Blindfold,2,45,34.78,0.77,35,2,,crit_damage_chance +0.05 = +24.1; dodge_chance +0.05 = +18.1; player_range -15 = -7.5,0.00
+item_68,Plasma Bag,2,45,36.31,0.81,35,2,,life_steal_chance +0.02 = +25.2; hp_regeneration +2 = +14.9; hustle -3 = -3.8,0.00
+item_69,Cracked Visor,2,45,44.89,1.00,45,2,,base_damage +0.12 = +50.9; player_range -12 = -6.0,0.00
+item_70,Scavenger Glove,2,45,36.25,0.81,35,2,,pickup_range +12 = +16.5; hustle +10 = +25.2; dodge_chance -0.03 = -5.4,0.35
+item_71,Pocket Dumbbell,2,50,41.53,0.83,40,2,,melee_damage +3 = +17.6; max_hp +5 = +31.4; player_range -15 = -7.5,0.00
+item_72,Participation Medal,2,55,59.28,1.08,60,3,,max_hp +3 = +18.9; base_damage +0.03 = +12.7; defense_ratio +0.01 = +18.6; movement_speed_multiplier +0.03 = +18.7; crit_damage_chance -0.04 = -9.6,0.24
+item_74,Scope,2,48,40.87,0.85,40,2,,ranged_damage +2 = +25.1; player_range +25 = +24.9; bonus_attack_speed -0.07 = -9.1,0.00
+item_76,Slushie Cup,2,50,7.86,0.16,10,1,UNICO/HOOK: stats planos subestimam o item | PRECO ALTO vs valor (ratio<0.75),elemental_damage +1 = +7.9,0.00
+item_77,Wheelbarrow,2,40,30.98,0.77,30,2,,hustle +16 = +40.3; defense_ratio -0.01 = -9.3,0.00
+item_82,Boss's Hat,3,75,72.88,0.97,75,3,,luck +15 = +41.3; hustle +18 = +45.3; bonus_attack_speed -0.05 = -6.5; crit_damage_chance -0.03 = -7.2,0.00
+item_83,Bedspring,3,70,21.60,0.31,20,1,depende de premissa (100% do valor) | PRECO ALTO vs valor (ratio<0.75),knockback_force +6 = +21.6,1.00
+item_84,Running Shoes,3,65,89.11,1.37,90,4,depende de premissa (56% do valor) | PRECO BAIXO vs valor (ratio>1.33),movement_speed_multiplier +0.1 = +62.3; life_steal_chance +0.03 = +37.8; luck -8 = -11.0,0.56
+item_85,Overcharged Battery,3,75,77.98,1.04,80,3,,base_damage +0.25 = +106.0; defense_ratio -0.03 = -28.0,0.00
+item_87,Lucky Charm,3,75,70.44,0.94,70,3,,luck +30 = +82.6; melee_damage -2 = -5.9; ranged_damage -1 = -6.3,0.00
+item_90,Poisonous Tonic,3,80,57.65,0.72,60,3,PRECO ALTO vs valor (ratio<0.75),bonus_attack_speed +0.1 = +26.1; crit_damage_chance +0.05 = +24.1; player_range +15 = +14.9; hp_regeneration -2 = -7.5,0.00
+item_91,Comfort Blanket,3,60,40.48,0.67,40,2,PRECO ALTO vs valor (ratio<0.75),max_hp +6 = +37.7; hp_regeneration +2 = +14.9; melee_damage -2 = -5.9; ranged_damage -1 = -6.3,0.00
+item_92,Overtime Contract,3,70,83.81,1.20,85,3,,hustle +40 = +100.8; base_damage -0.08 = -17.0,0.00
+item_95,Motorcycle Helmet,3,80,71.78,0.90,70,3,,defense_ratio +0.03 = +55.9; max_hp +5 = +31.4; movement_speed_multiplier -0.05 = -15.6,0.15
+item_96,Packed Lunch,3,85,65.88,0.78,65,3,,melee_damage +4 = +23.4; ranged_damage +2 = +25.1; hustle +10 = +25.2; elemental_damage -2 = -7.9,0.00
+item_97,Cardboard Wings,3,85,84.34,0.99,85,3,depende de premissa (62% do valor),movement_speed_multiplier +0.1 = +62.3; player_range +30 = +29.9; elemental_damage -2 = -7.9,0.62
+item_102,Jet Skates,4,100,104.76,1.05,105,4,depende de premissa (60% do valor),movement_speed_multiplier +0.15 = +93.5; dodge_chance +0.1 = +36.3; max_hp -5 = -15.7; defense_ratio -0.01 = -9.3,0.60
+item_103,Lucky Coin,4,105,-13.82,-0.13,,,UNICO/HOOK: stats planos subestimam o item | PRECO ALTO vs valor (ratio<0.75) | valor liquido <= 0,crit_damage_chance +0.01 = +4.8; defense_ratio -0.02 = -18.6,0.00
+item_104,Weighted Gauntlets,4,110,146.11,1.33,145,4,,melee_damage +20 = +117.1; hp_regeneration +5 = +37.3; knockback_force +5 = +18.0; base_damage -0.08 = -17.0; movement_speed_multiplier -0.03 = -9.4,0.14
+item_105,Night Goggles,4,95,103.33,1.09,105,4,,crit_damage_chance +0.15 = +72.3; player_range +50 = +49.8; max_hp -3 = -9.4; defense_ratio -0.01 = -9.3,0.00
+item_106,Regenerative Patch,4,105,131.18,1.25,130,4,,max_hp +12 = +75.4; hp_regeneration +5 = +37.3; life_steal_chance +0.03 = +37.8; crit_damage_chance -0.08 = -19.3,0.00
+item_107,Lucky Teddy,4,100,133.64,1.34,135,4,PRECO BAIXO vs valor (ratio>1.33),max_hp +12 = +75.4; luck +25 = +68.8; base_damage -0.05 = -10.6,0.00
+item_108,Cauldron Family Casserole,4,95,142.57,1.50,145,4,PRECO BAIXO vs valor (ratio>1.33),max_hp +3 = +18.9; hp_regeneration +2 = +14.9; life_steal_chance +0.01 = +12.6; base_damage +0.05 = +21.2; bonus_attack_speed +0.05 = +13.0; movement_speed_multiplier +0.03 = +18.7; dodge_chance +0.03 = +10.9; defense_ratio +0.01 = +18.6; luck +5 = +13.8,0.13
+item_109,Pocket Teleporter,4,100,85.94,0.86,85,3,UNICO/HOOK: stats planos subestimam o item,defense_ratio +0.03 = +55.9; auto_magnet_on_drop_chance +1 = +30.0,0.35
+keep_out_tape,Keep-Out Tape,1,20,15.07,0.75,15,1,depende de premissa (86% do valor),knockback_force +5 = +18.0; melee_damage -1 = -2.9,0.86
 phase_belt,Phase Belt,3,85,0.00,,,,UNICO/HOOK: stats planos subestimam o item | sem atributos (so hook): fora do ranking,,0.00
