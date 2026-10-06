@@ -72,3 +72,4 @@ Hoje o modelo usa só o preço do Brotato. Quando o jogo enviar telemetria, ela 
 - Pulo e velocidade valem mais aqui (x1.2), por ser um jogo de plataforma.
 - Dano elemental vale o mesmo que no Brotato: vão entrar armas elementais novas.
 - Explosão vale 0 só por enquanto; revisar quando entrarem armas que explodem.
+- **O preço segue a economia da wave** (o ouro que o jogador junta por wave). Item que vale menos que o preço ganha atributos melhores; o preço não cai. A sugestão do modelo deve ser lida como "quanto de atributo falta", não como preço novo.
