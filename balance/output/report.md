@@ -84,7 +84,7 @@ Engineering foi ajustado com os itens do Brotato, mas **não existe no nosso jog
 | base_damage | 552.744 | 1.00 | ajuste Brotato | 27.6 |
 | melee_damage | 6.519 | 1.00 | ajuste Brotato | 13.0 |
 | ranged_damage | 12.012 | 1.00 | ajuste Brotato | 12.0 |
-| elemental_damage | 7.087 | 0.50 | ajuste Brotato | 7.1 |
+| elemental_damage | 14.173 | 1.00 | ajuste Brotato | 14.2 |
 | bonus_attack_speed | 311.655 | 1.00 | ajuste Brotato | 15.6 |
 | crit_damage_chance | 624.402 | 1.00 | ajuste Brotato | 18.7 |
 | player_range | 1.224 | 1.00 | ajuste Brotato | 18.4 |
@@ -135,24 +135,25 @@ Limiares ajustados (preço mínimo de cada tier, acerto de 93% dos itens do Brot
 | item_103 | Lucky Coin | 4 | 105 | -41.4 | -0.39 |  |  |
 | item_45 | Behemoth Foam Fists | 2 | 55 | 3.1 | 0.06 | 5 |  |
 | keep_out_tape | Keep-Out Tape | 1 | 20 | 2.5 | 0.13 | 5 | sim |
-| item_76 | Slushie Cup | 2 | 50 | 7.1 | 0.14 | 5 |  |
 | item_83 | Bedspring | 3 | 70 | 10.9 | 0.16 | 10 | sim |
-| item_24 | Reactor Fragment | 1 | 20 | 4.0 | 0.20 | 5 |  |
-| item_31 | Wizard Hat | 2 | 45 | 9.8 | 0.22 | 10 |  |
-| fire_potion | Dirty Underwear | 1 | 30 | 7.1 | 0.24 | 5 |  |
 | item_13 | Dumbbell | 1 | 25 | 7.1 | 0.28 | 5 |  |
+| item_76 | Slushie Cup | 2 | 50 | 14.2 | 0.28 | 15 |  |
 | item_5 | Anger | 1 | 20 | 5.7 | 0.28 | 5 |  |
 | item_60 | Lens | 1 | 20 | 5.9 | 0.29 | 5 |  |
 | item_32 | Black Bandana | 2 | 50 | 16.9 | 0.34 | 15 |  |
 | item_38 | Sunglasses | 2 | 60 | 22.0 | 0.37 | 20 |  |
 | fast_hands | Kleptomania | 1 | 18 | 7.5 | 0.42 | 10 | sim |
-| item_28 | Photon Mutation | 2 | 40 | 17.4 | 0.44 | 15 |  |
+| item_1 | Brass Knuckles | 1 | 18 | 8.3 | 0.46 | 10 |  |
+| item_35 | Heartbound Necklace | 2 | 40 | 20.0 | 0.50 | 20 | sim |
+| item_18 | Clover | 1 | 25 | 12.6 | 0.50 | 15 |  |
+| item_14 | Heroes Magazine | 1 | 30 | 15.6 | 0.52 | 15 |  |
 
 ## 15 itens com preço mais baixo que o valor (ratio mais alto)
 
 | ID | Nome | Tier | Preço | Valor | Ratio | Sugerido | Premissa? |
 |---|---|---|---|---|---|---|---|
 | item_10 | Glasses | 1 | 18 | 35.4 | 1.96 | 35 |  |
+| gnome | Tunnel Vision | 4 | 100 | 189.7 | 1.90 | 190 |  |
 | item_108 | Cauldron Family Casserole | 4 | 95 | 178.3 | 1.88 | 180 |  |
 | item_37 | Clean Socks | 2 | 30 | 48.8 | 1.63 | 50 | sim |
 | cap | Cap | 1 | 20 | 31.5 | 1.57 | 30 | sim |
@@ -166,7 +167,6 @@ Limiares ajustados (preço mínimo de cada tier, acerto de 93% dos itens do Brot
 | item_53 | Vampire Comic | 1 | 20 | 25.0 | 1.25 | 25 |  |
 | item_106 | Regenerative Patch | 4 | 105 | 129.0 | 1.23 | 130 |  |
 | item_16 | Experimental Injection | 1 | 20 | 24.5 | 1.23 | 25 |  |
-| item_97 | Cardboard Wings | 3 | 85 | 101.2 | 1.19 | 100 | sim |
 
 'Premissa?' = mais da metade do valor vem de atributos com premissa manual; confirme esses antes de mexer no preço.
 
@@ -175,8 +175,8 @@ Limiares ajustados (preço mínimo de cada tier, acerto de 93% dos itens do Brot
 ### cape — Survival Instincts
 
 - Tier 1, preço 110, máximo INF.
-- Valor do modelo: **128.3**; ratio: **1.17**; sugestão: preço 130, tier 4.
-- Composição: life_steal_chance +0.05 = +77.7; dodge_chance +0.2 = +101.9; melee_damage -2 = -13.0; ranged_damage -2 = -24.0; elemental_damage -2 = -14.2.
+- Valor do modelo: **114.1**; ratio: **1.04**; sugestão: preço 115, tier 4.
+- Composição: life_steal_chance +0.05 = +77.7; dodge_chance +0.2 = +101.9; melee_damage -2 = -13.0; ranged_damage -2 = -24.0; elemental_damage -2 = -28.3.
 - Avisos: tier 1 na planilha, mas preco 110 cai na faixa do tier 4.
 - Nota: Equivale ao Cape do Brotato (Tier 4, 110 gold). Se a coluna Tier mostrar 1, o desencontro é de Tier, não de preço.
 

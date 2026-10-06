@@ -5,7 +5,7 @@ life_steal_chance,life_steal,100,,1.0,0.01,fit,0.02 = 2% de Life Steal.
 base_damage,damage_pct,100,,1.0,0.05,fit,0.05 = +5% Damage.
 melee_damage,melee_damage,1,,1.0,2,fit,Dano plano melee.
 ranged_damage,ranged_damage,1,,1.0,1,fit,Dano plano ranged.
-elemental_damage,elemental_damage,1,,0.5,1,fit,PREMISSA: só a Green Laser usa Elemental na demo; desconto de 50% sobre o valor do Brotato.
+elemental_damage,elemental_damage,1,,1.0,1,fit,Decisão do Gallen (06/10): sem desconto; armas elementais novas vão entrar.
 bonus_attack_speed,attack_speed,100,,1.0,0.05,fit,0.1 = +10% Attack Speed.
 crit_damage_chance,crit_chance,100,,1.0,0.03,fit,0.01 = +1% de chance de crítico.
 player_range,range,1,,1.0,15,fit,Mesma unidade do Brotato (o efeito real depende do range_scaling de cada arma).
@@ -27,7 +27,7 @@ victim_additional_health_drop_chance,,0,400,1.0,,manual,PREMISSA: cura por event
 projectile_bounces,,0,30,1.0,,manual,PREMISSA: +1 ricochete ~ 30 gold (Brotato Ricochet custa 110 com -25% Damage; só ranged).
 piercing,,0,25,1.0,,manual,PREMISSA: +1 perfuração ~ 25 gold (Brotato Sharp Bullet custa 25 com penalidades). Só ranged.
 pierce_damage_falloff,,0,0,1.0,,manual,Nenhum item ativo usa; valor 0 até haver item ativo.
-explosion_damage,,0,0,1.0,,manual,PREMISSA: nenhuma arma da demo explode; então explosão vale 0.
+explosion_damage,,0,0,1.0,,manual,Decisão do Gallen (06/10): vale 0 só por enquanto; armas que explodem vão entrar. Revisar quando entrarem.
 explosion_scale,,0,0,1.0,,manual,PREMISSA: igual a explosion_damage (0 na demo).
 gold_gain,,0,0,1.0,,manual,Multiplicador de gold reservado para sistemas específicos (estudo anterior); sem valor.
 drop_collection_damage_chance,,0,0,1.0,,manual,Nenhum item ativo usa; valor 0.

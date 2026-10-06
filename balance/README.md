@@ -62,3 +62,11 @@ Hoje o modelo usa só o preço do Brotato. Quando o jogo enviar telemetria, ela 
 2. **Resultado das partidas com o item.** Comparar a onda alcançada e a taxa de vitória de quem tinha o item com quem não tinha, controlando por onda de compra e por quantidade de outros itens. Isso mede o efeito real no jogo.
 3. **Ajuste dos pesos por stat.** Os dois sinais viram um fator de correção por stat (ex.: Dodge vale 1.2× o valor do Brotato). Os fatores entram na coluna `game_adjust` de `attribute_map.csv`, com limite de variação por rodada e com mínimo de amostras antes de qualquer mudança.
 4. **Nova leitura do relatório.** O mesmo script roda de novo e mostra a diferença entre o valor inicial (Brotato) e o valor ajustado pela telemetria.
+
+## Regras de design (decididas pelo Gallen)
+
+- **Nem tudo deve ficar equilibrado.** Alguns itens precisam ser fortes de propósito, para o jogador sentir o impacto e ficar feliz quando encontra. O modelo aponta desvios; ele não decide.
+- **Toda decisão de balanceamento é discutida com o Gallen antes de ir para a planilha.**
+- Pulo e velocidade valem mais aqui (x1.2), por ser um jogo de plataforma.
+- Dano elemental vale o mesmo que no Brotato: vão entrar armas elementais novas.
+- Explosão vale 0 só por enquanto; revisar quando entrarem armas que explodem.
