@@ -1,0 +1,106 @@
+name: Deploy do servidor de telemetria
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'server/**'
+      - '.github/workflows/deploy-server.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-server
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      UH_INGEST_KEY: ${{ secrets.UH_INGEST_KEY }}
+      UH_DASH_KEY: ${{ secrets.UH_DASH_KEY }}
+      WRANGLER_SEND_METRICS: 'false'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Conferir secrets obrigatórios
+        run: |
+          missing=0
+          for v in CLOUDFLARE_API_TOKEN CLOUDFLARE_ACCOUNT_ID; do
+            if [ -z "${!v}" ]; then echo "::error::Secret $v não configurado no GitHub (veja o README)."; missing=1; fi
+          done
+          exit $missing
+
+      - name: Instalar dependências
+        run: npm install --no-audit --no-fund
+
+      - name: Testes e checagem de tipos
+        run: |
+          npm test
+          npm run typecheck
+
+      - name: Garantir o banco D1 uh-telemetry e injetar o id na configuração
+        run: |
+          find_id() {
+            npx wrangler d1 list --json | node -e '
+              let s = ""; process.stdin.on("data", d => s += d).on("end", () => {
+                const db = JSON.parse(s).find(d => d.name === "uh-telemetry");
+                if (db) process.stdout.write(db.uuid || db.id || "");
+              });'
+          }
+          DB_ID="$(find_id)"
+          if [ -z "$DB_ID" ]; then
+            echo "Banco uh-telemetry não existe; criando."
+            npx wrangler d1 create uh-telemetry
+            DB_ID="$(find_id)"
+          fi
+          if [ -z "$DB_ID" ]; then echo "::error::Não consegui obter o id do banco uh-telemetry."; exit 1; fi
+          echo "::add-mask::$DB_ID"
+          sed -i "s/REPLACED_AT_DEPLOY/$DB_ID/" wrangler.toml
+          grep -q REPLACED_AT_DEPLOY wrangler.toml && { echo "::error::Marcador do database_id não foi substituído."; exit 1; } || true
+
+      - name: Aplicar migrações no D1 (remoto)
+        run: npx wrangler d1 migrations apply uh-telemetry --remote
+
+      - name: Deploy do Worker
+        id: deploy
+        run: |
+          npx wrangler deploy 2>&1 | tee deploy.log
+          URL="$(grep -oE 'https://[A-Za-z0-9.-]+\.workers\.dev' deploy.log | head -n1 || true)"
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+
+      - name: Configurar secrets do Worker (INGEST_KEY e DASH_KEY)
+        run: |
+          if [ -n "$UH_INGEST_KEY" ]; then
+            printf '%s' "$UH_INGEST_KEY" | npx wrangler secret put INGEST_KEY
+          else
+            echo "::warning::UH_INGEST_KEY ausente: o servidor recusa uploads (503) até ele ser configurado."
+          fi
+          if [ -n "$UH_DASH_KEY" ]; then
+            printf '%s' "$UH_DASH_KEY" | npx wrangler secret put DASH_KEY
+          else
+            echo "::notice::UH_DASH_KEY ausente: /v1/stats e /dashboard ficam desativados (404)."
+          fi
+
+      - name: Mostrar a URL do Worker
+        run: |
+          URL="${{ steps.deploy.outputs.url }}"
+          if [ -z "$URL" ]; then
+            echo "::warning::URL do workers.dev não encontrada no log; veja deploy.log ou o painel da Cloudflare."
+          else
+            echo "Worker publicado em: $URL"
+            echo "### Servidor de telemetria publicado" >> "$GITHUB_STEP_SUMMARY"
+            echo "URL (endpoint do jogo): \`$URL\`" >> "$GITHUB_STEP_SUMMARY"
+            curl -fsS "$URL/v1/health" && echo || echo "::warning::/v1/health não respondeu ainda (propagação)."
+          fi

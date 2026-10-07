@@ -1,0 +1,16 @@
+# O database_id real NUNCA é commitado: o workflow de deploy troca o marcador abaixo
+# pelo id do banco "uh-telemetry" (criado se não existir). Segredos INGEST_KEY e
+# DASH_KEY são Worker secrets, não ficam aqui.
+name = "uh-telemetry"
+main = "src/index.ts"
+compatibility_date = "2025-09-01"
+workers_dev = true
+
+[observability]
+enabled = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "uh-telemetry"
+database_id = "REPLACED_AT_DEPLOY"
+migrations_dir = "migrations"
