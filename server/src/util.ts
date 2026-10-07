@@ -10,7 +10,7 @@ export class HttpError extends Error {
   }
 }
 
-export const DEFAULT_MAX_BODY = 1_048_576;
+export const DEFAULT_MAX_BODY = 4_194_304; // igual ao limite do cliente (4 MiB), para nao travar pacotes validos
 const encoder = new TextEncoder();
 
 export function json(body: unknown, status = 200, headers: Record<string, string> = {}): Response {

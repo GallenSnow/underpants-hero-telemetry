@@ -78,9 +78,9 @@ test('revisoes: so a mais nova fica; reenvio de revisao antiga e coberto', async
   assert.equal((await j(old)).superseded, true);
 });
 
-test('limite de tamanho: >1 MiB descomprimido e rejeitado (gzip bomb incluida)', async () => {
+test('limite de tamanho: >4 MiB descomprimido e rejeitado (gzip bomb incluida)', async () => {
   const { call } = setup();
-  const big = JSON.stringify(summary({ pad: 'x'.repeat(1_100_000) }));
+  const big = JSON.stringify(summary({ pad: 'x'.repeat(4_300_000) }));
   const res = await call(post('/v1/runs', big, { gzip: true })); // comprime para poucos KB
   assert.equal(res.status, 413);
   assert.equal((await j(res)).error, 'payload_too_large');
