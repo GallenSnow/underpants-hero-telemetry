@@ -25,21 +25,28 @@ jobs:
           node-version: 22
       - name: Instalar dependências
         run: npm install --no-audit --no-fund
-      - name: Totais
+      - name: Apontar a configuração para o banco uh-telemetry
         run: |
-          npx wrangler d1 execute uh-telemetry --remote --command "
-            SELECT 'runs' AS tabela, COUNT(*) AS linhas, MIN(received_at) AS primeira, MAX(received_at) AS ultima FROM runs
-            UNION ALL
-            SELECT 'feedback', COUNT(*), MIN(received_at), MAX(received_at) FROM feedback"
-      - name: Últimas runs
+          DB_ID="$(npx wrangler d1 list --json | node -e '
+            let s = ""; process.stdin.on("data", d => s += d).on("end", () => {
+              const db = JSON.parse(s).find(d => d.name === "uh-telemetry");
+              if (db) process.stdout.write(db.uuid || db.id || "");
+            });')"
+          if [ -z "$DB_ID" ]; then echo "::error::Banco uh-telemetry não encontrado."; exit 1; fi
+          echo "::add-mask::$DB_ID"
+          sed -i "s/REPLACED_AT_DEPLOY/$DB_ID/" wrangler.toml
+      - name: Consultar
         run: |
-          npx wrangler d1 execute uh-telemetry --remote --command "
-            SELECT received_at, kind, payload_schema, lifecycle, revision, build_version, build_channel, character,
-                   difficulty, result, wave_reached, duration_s, locale
-            FROM runs ORDER BY received_at DESC LIMIT 10"
-      - name: Últimos feedbacks
-        run: |
-          npx wrangler d1 execute uh-telemetry --remote --command "
-            SELECT received_at, run_id IN (SELECT run_id FROM runs) AS run_encontrada, rating,
-                   LENGTH(comment) AS tamanho_comentario, tags, locale, question_version
-            FROM feedback ORDER BY received_at DESC LIMIT 10"
+          q() {
+            npx wrangler d1 execute uh-telemetry --remote --json --command "$2" > out.json
+            node -e '
+              const r = JSON.parse(require("fs").readFileSync("out.json", "utf8"));
+              const rows = (Array.isArray(r) ? r : [r]).flatMap(x => x.results || []);
+              const title = process.argv[1];
+              if (!rows.length) console.log(`::notice title=${title}::(nenhuma linha)`);
+              for (const row of rows) console.log(`::notice title=${title}::${JSON.stringify(row)}`);
+            ' "$1"
+          }
+          q "Totais" "SELECT 'runs' AS tabela, COUNT(*) AS linhas, MIN(received_at) AS primeira, MAX(received_at) AS ultima FROM runs UNION ALL SELECT 'feedback', COUNT(*), MIN(received_at), MAX(received_at) FROM feedback"
+          q "Runs" "SELECT received_at, kind, payload_schema, lifecycle, revision, build_version, build_channel, character, difficulty, result, wave_reached, duration_s, locale FROM runs ORDER BY received_at DESC LIMIT 10"
+          q "Feedback" "SELECT received_at, run_id IN (SELECT run_id FROM runs) AS run_encontrada, rating, LENGTH(comment) AS tamanho_comentario, tags, locale FROM feedback ORDER BY received_at DESC LIMIT 10"
